@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import TodoAppContext from './context/TodoAppContext';
+import { useTodoList } from './hooks/useTodoList';
 
 import TodoAppRouter from './router/TodoAppRouter';
 
+const initialUser = {
+  name: '',
+  isLogged: false,
+};
+
 const TodoApp = () => {
+  const [user, setUser] = useState(initialUser);
+  const { todos, dispatch } = useTodoList();
+
   return (
-    <div>
+    <TodoAppContext.Provider value={{ user, setUser, todos, dispatch }}>
       <TodoAppRouter />
-    </div>
+    </TodoAppContext.Provider>
   );
 };
 
