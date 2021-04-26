@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TodoAppContext from './context/TodoAppContext';
+
+import { useUserSession } from './hooks/useUserSession';
 import { useTodoList } from './hooks/useTodoList';
 
 import TodoAppRouter from './router/TodoAppRouter';
 
-const initialUser = {
-  name: '',
-  isLogged: false,
-};
-
 const TodoApp = () => {
-  const [user, setUser] = useState(initialUser);
+  const { user, setUser, resetUser } = useUserSession();
   const { todos, dispatch } = useTodoList();
 
+  const globalData = { user, setUser, resetUser, todos, dispatch };
+
   return (
-    <TodoAppContext.Provider value={{ user, setUser, todos, dispatch }}>
+    <TodoAppContext.Provider value={globalData}>
       <TodoAppRouter />
     </TodoAppContext.Provider>
   );
