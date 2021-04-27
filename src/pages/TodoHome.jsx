@@ -1,27 +1,9 @@
-import React, { useContext } from 'react';
-import TodoAppContext from '../context/TodoAppContext';
+import React from 'react';
 
-import { useRegistrationForm } from '../hooks/useRegistrationForm';
+import { useNameLogin } from '../hooks/useNameLogin';
 
-const TodoHome = ({ history }) => {
-  const { userName, handleInputChange, resetForm } = useRegistrationForm();
-  const { setUser } = useContext(TodoAppContext);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!userName.trim()) {
-      return;
-    }
-
-    setUser({
-      name: userName.trim(),
-      isLogged: true,
-    });
-
-    resetForm();
-    history.replace('/todoAppList');
-  };
+const TodoHome = () => {
+  const { userName, handleInputChange, handleSubmit } = useNameLogin();
 
   return (
     <div>
