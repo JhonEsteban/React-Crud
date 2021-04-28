@@ -14,9 +14,8 @@ const UpdateUserAvatar = () => {
   return (
     <div>
       <h1>Update User Avatar</h1>
-      <hr />
 
-      <Link to='/todoAppList'>Return</Link>
+      <Link to='/home'>Return</Link>
 
       <form onSubmit={handleUpdateUser}>
         <label>

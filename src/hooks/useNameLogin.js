@@ -32,7 +32,7 @@ export const useNameLogin = () => {
     });
 
     resetForm();
-    history.replace('/todoAppList');
+    history.replace('/home');
   };
 
   return {

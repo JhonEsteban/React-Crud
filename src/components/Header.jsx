@@ -1,22 +1,23 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-
 import TodoAppContext from '../context/TodoAppContext';
 
-const TodoAppList = ({ history }) => {
+const Header = () => {
   const { user, resetUser } = useContext(TodoAppContext);
+  const history = useHistory();
 
   const handleLogout = () => {
     resetUser();
-    history.push('/todoHome');
+    history.push('/login');
   };
-
   return (
-    <div>
-      <h1>TodoAppList</h1>
-      <hr />
+    <header>
+      <h1>This is the header</h1>
 
-      <h2>Welcome {user?.name}</h2>
+      <p>
+        Welcome <strong>{user.name}</strong>
+      </p>
 
       {user.avatar ? (
         <img src={user.avatar} alt={user.name} width='70' />
@@ -31,8 +32,10 @@ const TodoAppList = ({ history }) => {
       <Link to={`/updateAvatar/${user.name.toLowerCase()}`}>Update Avatar</Link>
 
       <button onClick={handleLogout}>Logout</button>
-    </div>
+
+      <hr />
+    </header>
   );
 };
 
-export default TodoAppList;
+export default Header;

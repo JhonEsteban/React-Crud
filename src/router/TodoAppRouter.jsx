@@ -1,32 +1,30 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import TodoHome from '../pages/TodoHome';
-import TodoAppList from '../pages/TodoAppList';
-import AddTodo from '../pages/AddTodo';
-import UpdateTodo from '../pages/UpdateTodo';
-import UpdateUserAvatar from '../pages/UpdateUserAvatar';
+import TodoAppContext from '../context/TodoAppContext';
+
+import PublicRoutes from './PublicRoutes';
+import PrivateRoutes from './PrivateRoutes';
+
+import Login from '../pages/Login';
+import HomeRoutes from './HomeRoutes';
 
 const TodoAppRouter = () => {
+  const { user } = useContext(TodoAppContext);
+  const { isLogged } = user;
+
   return (
     <Router>
       <div>
         <Switch>
-          <Route exact path='/todoHome' component={TodoHome} />
-          <Route exact path='/todoAppList' component={TodoAppList} />
-          <Route exact path='/addTodo' component={AddTodo} />
-          <Route exact path='/updateTodo/:todoId' component={UpdateTodo} />
-          <Route
+          <PublicRoutes
             exact
-            path='/updateAvatar/:userId'
-            component={UpdateUserAvatar}
+            path='/login'
+            isLogged={isLogged}
+            component={Login}
           />
-          <Redirect to='/todoHome' />
+
+          <PrivateRoutes path='/' isLogged={isLogged} component={HomeRoutes} />
         </Switch>
       </div>
     </Router>

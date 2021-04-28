@@ -2,12 +2,12 @@ import React from 'react';
 
 import { useNameLogin } from '../hooks/useNameLogin';
 
-const TodoHome = () => {
+const Login = () => {
   const { userName, handleInputChange, handleSubmit } = useNameLogin();
 
   return (
     <div>
-      <h1>Todo Home</h1>
+      <h1>Login</h1>
       <hr />
 
       <form onSubmit={handleSubmit}>
@@ -23,4 +23,4 @@ const TodoHome = () => {
   );
 };
 
-export default TodoHome;
+export default Login;
