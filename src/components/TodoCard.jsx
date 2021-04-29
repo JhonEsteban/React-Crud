@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 
 import '../assets/styles/components/TodoCard.scss';
 import TodoAppContext from '../context/TodoAppContext';
@@ -6,8 +7,9 @@ import { types } from '../types';
 
 const TodoCard = ({ todo }) => {
   const { id, name, description, completed } = todo;
+  const { dispatch, setTodoUpdate } = useContext(TodoAppContext);
 
-  const { dispatch } = useContext(TodoAppContext);
+  const history = useHistory();
 
   const handleTodoCompleted = (todoId) => {
     dispatch({
@@ -23,6 +25,11 @@ const TodoCard = ({ todo }) => {
     });
   };
 
+  const handleTodoUpdate = (todoUpdate) => {
+    setTodoUpdate(todoUpdate);
+    history.push(`/updateTodo/${todoUpdate.id}`);
+  };
+
   return (
     <article className={`todo-card ${completed ? 'completed' : ''}`}>
       <h3>{name}</h3>
@@ -30,6 +37,7 @@ const TodoCard = ({ todo }) => {
       <div>
         <button onClick={() => handleTodoCompleted(id)}>Completar</button>
         <button onClick={() => handleTodoDelete(id)}>Eliminar</button>
+        <button onClick={() => handleTodoUpdate(todo)}>Actualizar</button>
       </div>
     </article>
   );

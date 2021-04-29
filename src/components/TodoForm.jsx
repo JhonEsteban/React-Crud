@@ -1,38 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import TodoAppContext from '../context/TodoAppContext';
 
-import { Link } from 'react-router-dom';
-
-import { useForm } from '../hooks/useForm';
-
-const TodoForm = () => {
-  const { name, description, handleInputChange, handleSubmit } = useForm();
+const TodoForm = ({ name, description, handleInputChange, handleSubmit }) => {
+  const { todoUpdate } = useContext(TodoAppContext);
 
   return (
-    <div>
-      <Link to='/home'>Return</Link>
+    <form onSubmit={handleSubmit}>
+      <p>
+        <input
+          onChange={handleInputChange}
+          value={name}
+          name='name'
+          type='text'
+          placeholder='Name'
+        />
+      </p>
+      <p>
+        <textarea
+          onChange={handleInputChange}
+          value={description}
+          name='description'
+          placeholder='Description'
+        ></textarea>
+      </p>
 
-      <form onSubmit={handleSubmit}>
-        <p>
-          <input
-            onChange={handleInputChange}
-            value={name}
-            name='name'
-            type='text'
-            placeholder='Name'
-          />
-        </p>
-        <p>
-          <textarea
-            onChange={handleInputChange}
-            value={description}
-            name='description'
-            placeholder='Description'
-          ></textarea>
-        </p>
-
-        <button>Save Todo</button>
-      </form>
-    </div>
+      <button>{todoUpdate ? 'Update Todo' : 'Save Todo'}</button>
+    </form>
   );
 };
 

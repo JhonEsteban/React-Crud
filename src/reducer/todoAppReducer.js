@@ -21,6 +21,13 @@ const todoAppReducer = (state = [], action) => {
 
       return todoListFiltered;
 
+    case types.updateTodo:
+      const todoListUpdated = state.map((todo) =>
+        todo.id === action.payload.id ? action.payload : todo
+      );
+
+      return todoListUpdated;
+
     default:
       return state;
   }

@@ -1,9 +1,4 @@
-import { useContext, useState } from 'react';
-
-import TodoAppContext from '../context/TodoAppContext';
-
-import { useHistory } from 'react-router';
-import { types } from '../types';
+import { useState } from 'react';
 
 const initialState = {
   name: '',
@@ -14,10 +9,6 @@ export const useForm = () => {
   const [formValues, setFormValues] = useState(initialState);
   const { name, description } = formValues;
 
-  const { dispatch } = useContext(TodoAppContext);
-
-  const history = useHistory();
-
   const handleInputChange = ({ target }) => {
     setFormValues({
       ...formValues,
@@ -25,31 +16,16 @@ export const useForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!name.trim() || !description.trim()) {
-      alert('Debes llenar los campos');
-      return;
-    }
-
-    dispatch({
-      type: types.addTodo,
-      payload: {
-        id: Date.now(),
-        name,
-        description,
-        completed: false,
-      },
-    });
-
-    history.goBack();
+  const resetForm = () => {
+    setFormValues(initialState);
   };
 
   return {
     name,
     description,
     handleInputChange,
-    handleSubmit,
+    formValues,
+    setFormValues,
+    resetForm,
   };
 };
