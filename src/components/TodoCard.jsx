@@ -1,10 +1,17 @@
 import React from 'react';
 
-const TodoCard = () => {
+import '../assets/styles/components/TodoCard.scss';
+
+const TodoCard = ({ name, description }) => {
   return (
-    <div>
-      <h1>TodoCard</h1>
-    </div>
+    <article className='todo-card'>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <div>
+        <button>Completar</button>
+        <button>Eliminar</button>
+      </div>
+    </article>
   );
 };
 

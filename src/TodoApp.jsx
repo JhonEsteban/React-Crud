@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './assets/styles/TodoApp.scss';
+
 import TodoAppContext from './context/TodoAppContext';
 
 import { useUserSession } from './hooks/useUserSession';

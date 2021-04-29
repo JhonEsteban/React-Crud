@@ -4,7 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from '../components/Header';
 
 import Home from '../pages/Home';
-import AddTodo from '../pages/AddTodo';
+import CreateTodo from '../pages/CreateTodo';
 import UpdateTodo from '../pages/UpdateTodo';
 import UpdateUserAvatar from '../pages/UpdateUserAvatar';
 
@@ -16,7 +16,7 @@ const HomeRoutes = () => {
       <div>
         <Switch>
           <Route exact path='/home' component={Home} />
-          <Route exact path='/addTodo' component={AddTodo} />
+          <Route exact path='/createTodo' component={CreateTodo} />
           <Route exact path='/updateTodo/:todoId' component={UpdateTodo} />
           <Route
             exact

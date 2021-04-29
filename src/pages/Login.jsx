@@ -6,7 +6,7 @@ const Login = () => {
   const { userName, handleInputChange, handleSubmit } = useNameLogin();
 
   return (
-    <div>
+    <div className='wrapper'>
       <h1>Login</h1>
       <hr />
 

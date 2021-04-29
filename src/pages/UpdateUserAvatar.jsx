@@ -12,7 +12,7 @@ const UpdateUserAvatar = () => {
   } = useAvatar();
 
   return (
-    <div>
+    <div className='wrapper'>
       <h1>Update User Avatar</h1>
 
       <Link to='/home'>Return</Link>
