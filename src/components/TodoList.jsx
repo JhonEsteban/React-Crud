@@ -17,7 +17,7 @@ const TodoList = () => {
 
       <section className='todo-list__container'>
         {todos.map((todo) => (
-          <TodoCard key={todo.id} {...todo} />
+          <TodoCard key={todo.id} todo={todo} />
         ))}
       </section>
     </div>
