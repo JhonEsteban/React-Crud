@@ -28,6 +28,9 @@ const todoAppReducer = (state = [], action) => {
 
       return todoListUpdated;
 
+    case types.clearTodos:
+      return [];
+
     default:
       return state;
   }

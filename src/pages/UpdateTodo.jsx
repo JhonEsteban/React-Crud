@@ -38,6 +38,7 @@ const UpdateTodo = ({ history }) => {
 
     alert('Succesfully Updated Todo');
     resetForm();
+    setTodoUpdate(null);
     history.goBack();
   };
 
