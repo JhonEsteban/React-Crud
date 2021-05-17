@@ -1,25 +1,32 @@
 import React from 'react';
 
+import '../assets/styles/pages/Login.scss';
+
 import { useNameLogin } from '../hooks/useNameLogin';
 
 const Login = () => {
   const { userName, handleInputChange, handleSubmit } = useNameLogin();
 
   return (
-    <div className='wrapper'>
-      <h1>Login</h1>
-      <hr />
+    <section className='login'>
+      <div className='wrapper'>
+        <div className='login__container'>
+          <div className='hero'></div>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleInputChange}
-          value={userName}
-          type='text'
-          placeholder='Write Your Name'
-        />
-        <button>Login</button>
-      </form>
-    </div>
+          <form onSubmit={handleSubmit} className='login-form'>
+            <h1 className='login-form__title'>Iniciar Sesión</h1>
+            <input
+              className='login-form__input'
+              onChange={handleInputChange}
+              value={userName}
+              type='text'
+              placeholder='Escribe tu nombre'
+            />
+            <button className='login-form__button'>Entrar</button>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
 
