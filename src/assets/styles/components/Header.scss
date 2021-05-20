@@ -3,35 +3,66 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  padding: 10px 40px;
 
-  h1 {
+  &__title {
     margin: 0;
   }
 
   .profile {
+    position: relative;
+    margin-top: 10px;
     display: grid;
 
+    &__button {
+      position: absolute;
+      padding: 10px 15px;
+      margin: 6px auto;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: red;
+      display: none;
+      top: 60px;
+
+      &:hover {
+        background-color: rgb(218, 9, 9);
+      }
+    }
+
+    &__update {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      z-index: 1;
+      right: -7px;
+      cursor: pointer;
+
+      .icon {
+        font-size: 1.4rem;
+        color: rgb(50, 11, 167);
+      }
+    }
+
+    &:hover {
+      .profile__button {
+        display: block;
+      }
+    }
+
     .avatar {
+      position: relative;
       margin: 0;
       text-align: center;
 
-      img {
+      &__image {
         border-radius: 50%;
-        width: 50px;
+        object-fit: cover;
       }
 
       p {
         margin: 0;
-      }
-    }
-
-    .options {
-      display: flex;
-      flex-direction: column;
-
-      button {
-        margin: 6px 0;
       }
     }
   }

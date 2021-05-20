@@ -11,9 +11,9 @@ const TodoList = () => {
 
   return (
     <div className='todo-list'>
-      <h1>TodoList</h1>
+      <h1>Lista de tareas</h1>
 
-      {todos.length === 0 && <p>No hay todos agregados!</p>}
+      {todos.length === 0 && <p>No hay tareas agregados!</p>}
 
       <section className='todo-list__container'>
         {todos.map((todo) => (

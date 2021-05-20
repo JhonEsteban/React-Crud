@@ -1,13 +1,85 @@
 .todo-card {
-  margin: 20px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 5px 1px #ccc;
   border-radius: 10px;
+  padding: 30px 25px 0;
+  max-width: 200px;
+  word-wrap: break-word;
 
   &.completed {
-    h3,
-    p {
+    .heading__title,
+    .todo-card__description {
       text-decoration: line-through;
+    }
+
+    .options__btn:first-child {
+      background-color: green;
+
+      &:hover {
+        background-color: rgb(3, 88, 3);
+      }
+    }
+  }
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      margin: 0;
+    }
+
+    .btn-update {
+      cursor: pointer;
+      transition: color, transform 300ms;
+
+      &:hover {
+        color: green;
+        transform: scale(1.4);
+      }
+    }
+  }
+
+  &__description {
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__btn {
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      transition: background-color 200ms;
+
+      span {
+        margin-right: 5px;
+      }
+    }
+
+    &__btn:first-child {
+      background-color: blue;
+
+      &:hover {
+        background-color: rgb(10, 10, 194);
+      }
+    }
+
+    &__btn:last-child {
+      background-color: red;
+
+      &:hover {
+        background-color: rgb(236, 26, 26);
+      }
     }
   }
 }

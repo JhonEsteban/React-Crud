@@ -18,27 +18,51 @@ const Header = () => {
     history.push('/login');
   };
 
+  const handleUpdateAvatar = () => {
+    history.push(`/updateAvatar/${user.name.toLowerCase()}`);
+  };
+
   return (
-    <header className='header'>
-      <h1>Welcome {user.name}</h1>
+    <div className='wrapper'>
+      <header className='header'>
+        <h2 className='header__title'>{user.name}</h2>
 
-      <section className='profile'>
-        <figure className='avatar'>
-          {user.avatar ? (
-            <img src={user.avatar} alt={user.name} width='70' />
-          ) : (
-            <img src={defaultAvatar} alt='default avatar' width='80' />
-          )}
-        </figure>
+        <section className='profile'>
+          <div className='profile__update' onClick={handleUpdateAvatar}>
+            <span
+              className=' icon fas fa-pencil-alt'
+              title='Editar Avatar'
+            ></span>
+          </div>
 
-        <div className='options'>
-          <Link to={`/updateAvatar/${user.name.toLowerCase()}`}>
-            Update Avatar
-          </Link>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      </section>
-    </header>
+          <figure className='avatar'>
+            {user.avatar ? (
+              <img
+                className='avatar__image'
+                src={user.avatar}
+                alt={user.name}
+                width='60'
+              />
+            ) : (
+              <img
+                className='avatar__image'
+                src={defaultAvatar}
+                alt='default avatar'
+                width='60'
+              />
+            )}
+          </figure>
+
+          <button
+            onClick={handleLogout}
+            className='profile__button'
+            type='button'
+          >
+            Salir
+          </button>
+        </section>
+      </header>
+    </div>
   );
 };
 

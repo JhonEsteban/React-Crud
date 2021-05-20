@@ -32,12 +32,29 @@ const TodoCard = ({ todo }) => {
 
   return (
     <article className={`todo-card ${completed ? 'completed' : ''}`}>
-      <h3>{name}</h3>
-      <p>{description}</p>
-      <div>
-        <button onClick={() => handleTodoCompleted(id)}>Completar</button>
-        <button onClick={() => handleTodoDelete(id)}>Eliminar</button>
-        <button onClick={() => handleTodoUpdate(todo)}>Actualizar</button>
+      <div className='heading'>
+        <h3 className='heading__title'>{name}</h3>
+        <span
+          onClick={() => handleTodoUpdate(todo)}
+          className='btn-update fas fa-pencil-alt'
+        ></span>
+      </div>
+
+      <p className='todo-card__description'>{description}</p>
+
+      <div className='options'>
+        <button
+          onClick={() => handleTodoCompleted(id)}
+          className='options__btn'
+        >
+          <span>Completar</span>
+          <i className='fas fa-check'></i>
+        </button>
+
+        <button onClick={() => handleTodoDelete(id)} className='options__btn'>
+          <span>Eliminar</span>
+          <i className='fas fa-trash'></i>
+        </button>
       </div>
     </article>
   );
