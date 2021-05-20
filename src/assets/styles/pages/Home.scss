@@ -1,8 +1,39 @@
 .home {
-  .options {
-    width: 200px;
+  .settings {
     display: flex;
     justify-content: flex-start;
     padding: 20px 0;
+    column-gap: 20px;
+
+    &__btn {
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem;
+      transition: background-color 200ms;
+
+      span {
+        margin-right: 5px;
+      }
+
+      &:first-child {
+        background-color: purple;
+
+        &:hover {
+          background-color: rgb(90, 9, 90);
+        }
+      }
+
+      &:last-child {
+        background-color: red;
+
+        &:hover {
+          background-color: rgb(189, 7, 7);
+        }
+      }
+    }
   }
 }

@@ -2,7 +2,7 @@
   background-color: white;
   box-shadow: 1px 1px 5px 1px #ccc;
   border-radius: 10px;
-  padding: 30px 25px 0;
+  padding: 30px 25px 15px;
   max-width: 200px;
   word-wrap: break-word;
 
@@ -47,6 +47,7 @@
   }
 
   .options {
+    width: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,7 +79,7 @@
       background-color: red;
 
       &:hover {
-        background-color: rgb(236, 26, 26);
+        background-color: rgb(173, 13, 13);
       }
     }
   }

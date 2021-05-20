@@ -23,12 +23,12 @@ const Home = ({ history }) => {
   return (
     <div className='home'>
       <div className='wrapper'>
-        <div className='options'>
-          <button onClick={createTodo} className='options__btn'>
+        <div className='settings'>
+          <button onClick={createTodo} className='settings__btn'>
             <span>Crear tarea</span>
             <i className='fas fa-plus'></i>
           </button>
-          <button onClick={handleClearTodos} className='options__btn'>
+          <button onClick={handleClearTodos} className='settings__btn'>
             <span>Borrar Tareas</span>
             <i className='fas fa-trash'></i>
           </button>
