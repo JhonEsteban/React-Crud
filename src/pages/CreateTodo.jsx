@@ -37,10 +37,10 @@ const CreateTodo = () => {
   };
 
   return (
-    <div className='wrapper'>
-      <h1>Crear todo</h1>
+    <div className='wrapper animate__animated animate__fadeIn'>
+      <h1>Crear Tarea</h1>
 
-      <Link to='/home'>Return</Link>
+      <Link to='/home'>Regresar</Link>
 
       <TodoForm
         name={name}

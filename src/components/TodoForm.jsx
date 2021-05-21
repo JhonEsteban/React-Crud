@@ -1,30 +1,34 @@
 import React, { useContext } from 'react';
+
+import '../assets/styles/components/TodoForm.scss';
+
 import TodoAppContext from '../context/TodoAppContext';
 
 const TodoForm = ({ name, description, handleInputChange, handleSubmit }) => {
   const { todoUpdate } = useContext(TodoAppContext);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>
-        <input
-          onChange={handleInputChange}
-          value={name}
-          name='name'
-          type='text'
-          placeholder='Name'
-        />
-      </p>
-      <p>
-        <textarea
-          onChange={handleInputChange}
-          value={description}
-          name='description'
-          placeholder='Description'
-        ></textarea>
-      </p>
+    <form onSubmit={handleSubmit} className='todo-form'>
+      <input
+        onChange={handleInputChange}
+        value={name}
+        name='name'
+        type='text'
+        placeholder='Nombre'
+      />
 
-      <button>{todoUpdate ? 'Update Todo' : 'Save Todo'}</button>
+      <textarea
+        onChange={handleInputChange}
+        value={description}
+        name='description'
+        placeholder='Descripción'
+        cols='30'
+        rows='10'
+      ></textarea>
+      <button className='todo-form__btn'>
+        <span>{todoUpdate ? 'Actualizar' : 'Guardar'}</span>
+        <i class='fas fa-save'></i>
+      </button>
     </form>
   );
 };

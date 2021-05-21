@@ -3,12 +3,12 @@
 .login {
   min-height: 100vh;
   background: linear-gradient($hero-background),
-    url(https://i.imgur.com/wRn3hwc.jpg) center / cover;
+    url(../../images/login-image.jpg) center / cover;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 720px) {
     background: linear-gradient($hero-background),
-      url(https://i.imgur.com/V8yek1V.jpg) center / cover;
+      url(../../images/login-image-2.jpg) center / cover;
   }
 
   &__container {
@@ -31,7 +31,7 @@
         display: block;
         width: 100%;
         height: 380px;
-        background: url(https://i.imgur.com/V8yek1V.jpg) center / cover;
+        background: url(../../images/login-image-2.jpg) center / cover;
         background-repeat: no-repeat;
         opacity: 0.9;
         border-radius: 10px 0 0 10px;

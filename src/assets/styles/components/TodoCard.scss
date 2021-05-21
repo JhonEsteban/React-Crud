@@ -14,6 +14,7 @@
 
     .options__btn:first-child {
       background-color: green;
+      box-shadow: 0px 3px 2px green;
 
       &:hover {
         background-color: rgb(3, 88, 3);
@@ -69,6 +70,7 @@
 
     &__btn:first-child {
       background-color: blue;
+      box-shadow: 0px 3px 2px blue;
 
       &:hover {
         background-color: rgb(10, 10, 194);
@@ -77,6 +79,7 @@
 
     &__btn:last-child {
       background-color: red;
+      box-shadow: 0px 3px 2px #ef0404;
 
       &:hover {
         background-color: rgb(173, 13, 13);

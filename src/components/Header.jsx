@@ -4,19 +4,13 @@ import '../assets/styles/components/Header.scss';
 
 import defaultAvatar from '../assets/images/default-avatar.png';
 
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 
 import TodoAppContext from '../context/TodoAppContext';
 
 const Header = () => {
-  const { user, resetUser } = useContext(TodoAppContext);
+  const { user } = useContext(TodoAppContext);
   const history = useHistory();
-
-  const handleLogout = () => {
-    resetUser();
-    history.push('/login');
-  };
 
   const handleUpdateAvatar = () => {
     history.push(`/updateAvatar/${user.name.toLowerCase()}`);
@@ -36,30 +30,13 @@ const Header = () => {
           </div>
 
           <figure className='avatar'>
-            {user.avatar ? (
-              <img
-                className='avatar__image'
-                src={user.avatar}
-                alt={user.name}
-                width='60'
-              />
-            ) : (
-              <img
-                className='avatar__image'
-                src={defaultAvatar}
-                alt='default avatar'
-                width='60'
-              />
-            )}
+            <img
+              className='avatar__image'
+              src={user.avatar || defaultAvatar}
+              alt='default avatar'
+              width='60'
+            />
           </figure>
-
-          <button
-            onClick={handleLogout}
-            className='profile__button'
-            type='button'
-          >
-            Salir
-          </button>
         </section>
       </header>
     </div>

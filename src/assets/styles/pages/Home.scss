@@ -1,4 +1,6 @@
 .home {
+  position: relative;
+
   .settings {
     display: flex;
     justify-content: flex-start;
@@ -21,19 +23,55 @@
 
       &:first-child {
         background-color: purple;
+        box-shadow: 0px 3px 2px #9a369a;
 
         &:hover {
           background-color: rgb(90, 9, 90);
         }
       }
 
-      &:last-child {
+      &:nth-child(2) {
         background-color: red;
+        box-shadow: 0px 3px 2px #ef0404;
 
         &:hover {
-          background-color: rgb(189, 7, 7);
+          background-color: #ef0404;
         }
       }
+
+      &:last-child {
+        align-self: flex-end;
+        background-color: red;
+        box-shadow: 0px 3px 2px #ef0404;
+
+        &:hover {
+          background-color: #ef0404;
+        }
+      }
+    }
+  }
+
+  .btn-logout {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    right: 20px;
+    bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px #f55757;
+    transition: background-color 200ms;
+
+    &:hover {
+      background-color: rgb(179, 13, 13);
+    }
+
+    i {
+      font-size: 1.6rem;
     }
   }
 }

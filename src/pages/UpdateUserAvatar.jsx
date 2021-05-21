@@ -1,31 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../assets/styles/pages/UpdateUserAvatar.scss';
+
 import { useAvatar } from '../hooks/useAvatar';
+import defaultAvatar from '../assets/images/default-avatar.png';
 
 const UpdateUserAvatar = () => {
-  const {
-    userAvatar,
-    inputFileRef,
-    handleFileChange,
-    handleUpdateUser,
-  } = useAvatar();
+  const { userAvatar, inputFileRef, handleFileChange, handleUpdateUser } =
+    useAvatar();
 
   return (
-    <div className='wrapper'>
-      <h1>Update User Avatar</h1>
+    <div className='wrapper animate__animated animate__fadeIn'>
+      <h1>Actualizar Avatar</h1>
 
-      <Link to='/home'>Return</Link>
+      <Link to='/home'>Regresar</Link>
 
-      <form onSubmit={handleUpdateUser}>
-        <label>
-          <p>Add Your Avatar</p>
+      <form onSubmit={handleUpdateUser} className='update-form'>
+        <label className='update-form__label'>
           <input onChange={handleFileChange} ref={inputFileRef} type='file' />
         </label>
 
-        {userAvatar && <img src={userAvatar} alt='user-avatar' width='70' />}
+        <img
+          src={userAvatar || defaultAvatar}
+          alt='avatar'
+          width='70'
+          className='preview-image'
+        />
 
-        <button>Update Avatar</button>
+        <button type='submit' className='update-form__btn'>
+          <span>Actualizar</span>
+          <i className='fas fa-images'></i>
+        </button>
       </form>
     </div>
   );

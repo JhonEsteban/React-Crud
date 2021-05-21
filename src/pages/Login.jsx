@@ -10,7 +10,7 @@ const Login = () => {
   return (
     <section className='login'>
       <div className='wrapper'>
-        <div className='login__container'>
+        <div className='login__container animate__animated animate__fadeIn'>
           <div className='hero'></div>
 
           <form onSubmit={handleSubmit} className='login-form'>

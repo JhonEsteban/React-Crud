@@ -1,15 +1,18 @@
-.todo-form {
-  max-width: 450px;
+.update-form {
+  margin-top: 30px;
 
-  input[type='text'],
-  textarea {
+  &__label {
     display: block;
-    width: calc(100% - 25px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    margin: 15px 0 15px;
-    outline: none;
+    margin-bottom: 20px;
+
+    span {
+      display: block;
+    }
+  }
+
+  .preview-image {
+    display: block;
+    margin-bottom: 20px;
   }
 
   &__btn {

@@ -8,7 +8,7 @@ import TodoList from '../components/TodoList';
 import { types } from '../types';
 
 const Home = ({ history }) => {
-  const { dispatch } = useContext(TodoAppContext);
+  const { dispatch, resetUser } = useContext(TodoAppContext);
 
   const createTodo = () => {
     history.push('/createTodo');
@@ -18,6 +18,11 @@ const Home = ({ history }) => {
     dispatch({
       type: types.clearTodos,
     });
+  };
+
+  const handleLogout = () => {
+    resetUser();
+    history.push('/login');
   };
 
   return (
@@ -35,6 +40,15 @@ const Home = ({ history }) => {
         </div>
 
         <TodoList />
+
+        <button
+          onClick={handleLogout}
+          type='button'
+          className='btn-logout'
+          title='Salir'
+        >
+          <i className='fas fa-sign-out-alt'></i>
+        </button>
       </div>
     </div>
   );

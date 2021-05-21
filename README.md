@@ -5,7 +5,7 @@ This project is a crud with pages per action managed with routes, the informatio
 ## Desktop design
 
 ![](https://i.imgur.com/QytbGly.png)
-![](https://i.imgur.com/bT1sZxN.png)
+![](https://i.imgur.com/7mAdZLT.png)
 
 ## Technologies used: 📕
 

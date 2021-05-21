@@ -48,10 +48,10 @@ const UpdateTodo = ({ history }) => {
   };
 
   return (
-    <div className='wrapper'>
-      <h1>Update Todo</h1>
+    <div className='wrapper animate__animated animate__fadeIn'>
+      <h1>Actualizar Tarea</h1>
 
-      <button onClick={handleReturn}>Return</button>
+      <button onClick={handleReturn}>Regresar</button>
 
       <TodoForm
         name={name}
