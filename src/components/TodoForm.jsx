@@ -27,7 +27,7 @@ const TodoForm = ({ name, description, handleInputChange, handleSubmit }) => {
       ></textarea>
       <button className='todo-form__btn'>
         <span>{todoUpdate ? 'Actualizar' : 'Guardar'}</span>
-        <i class='fas fa-save'></i>
+        <i className='fas fa-save'></i>
       </button>
     </form>
   );

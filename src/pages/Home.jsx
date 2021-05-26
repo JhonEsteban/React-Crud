@@ -1,28 +1,55 @@
 import React, { useContext } from 'react';
 
-import TodoAppContext from '../context/TodoAppContext';
-
 import '../assets/styles/pages/Home.scss';
 
-import TodoList from '../components/TodoList';
+import Swal from 'sweetalert2';
+
+import TodoAppContext from '../context/TodoAppContext';
 import { types } from '../types';
 
+import { useAlerts } from '../hooks/useAlerts';
+
+import TodoList from '../components/TodoList';
+
 const Home = ({ history }) => {
-  const { dispatch, resetUser } = useContext(TodoAppContext);
+  const { dispatch, resetUser, todos } = useContext(TodoAppContext);
+  const { alertSuccess, alertQuestion, alertError } = useAlerts();
 
   const createTodo = () => {
     history.push('/createTodo');
   };
 
   const handleClearTodos = () => {
-    dispatch({
-      type: types.clearTodos,
-    });
+    if (todos.length > 0) {
+      alertQuestion(
+        'Eliminar las tareas',
+        '¿Desea eliminar todas las tareas?',
+        'Eliminar'
+      ).then((result) => {
+        if (result.isConfirmed) {
+          alertSuccess('Eliminando...', 600);
+
+          dispatch({
+            type: types.clearTodos,
+          });
+        }
+      });
+    } else {
+      alertError('No hay tareas creadas');
+    }
   };
 
   const handleLogout = () => {
-    resetUser();
-    history.push('/login');
+    alertQuestion('Cerrar Sesión', '¿Desea salir de su cuenta?', 'Salir').then(
+      (result) => {
+        if (result.isConfirmed) {
+          alertSuccess('Saliendo...', 600);
+
+          resetUser();
+          history.push('/login');
+        }
+      }
+    );
   };
 
   return (

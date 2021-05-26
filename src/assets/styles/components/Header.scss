@@ -1,8 +1,9 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
+  @include flexbox(space-between);
+  border-bottom: 1px solid $light-gray-color;
 
   &__title {
     margin: 0;
@@ -19,16 +20,16 @@
       margin: 6px auto;
       border: none;
       border-radius: 5px;
-      color: white;
+      color: $light-color;
       font-size: 1rem;
       cursor: pointer;
-      background-color: red;
+      background-color: $red-color;
       font-family: 'Poppins', sans-serif;
       display: none;
       top: 50px;
 
       &:hover {
-        background-color: rgb(218, 9, 9);
+        background-color: $red-shadow;
       }
     }
 

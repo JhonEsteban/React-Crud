@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 
-import TodoAppContext from '../context/TodoAppContext';
-
 import { useForm } from '../hooks/useForm';
+
+import TodoAppContext from '../context/TodoAppContext';
 import { types } from '../types';
+
+import { useAlerts } from '../hooks/useAlerts';
 
 import TodoForm from '../components/TodoForm';
 
@@ -19,27 +21,34 @@ const UpdateTodo = ({ history }) => {
 
   const { todoUpdate, setTodoUpdate, dispatch } = useContext(TodoAppContext);
 
+  const { alertSuccess, alertError } = useAlerts();
+
   useEffect(() => {
     todoUpdate && setFormValues(todoUpdate);
   }, [todoUpdate, setFormValues]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!name.trim() || !description.trim()) {
-      alert('Debe llenar los campos');
-      return;
-    }
+  const handleTodoUpdate = () => {
+    alertSuccess('Tarea Actualizada', 500);
 
     dispatch({
       type: types.updateTodo,
       payload: formValues,
     });
 
-    alert('Succesfully Updated Todo');
     resetForm();
     setTodoUpdate(null);
     history.goBack();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!name.trim() || !description.trim()) {
+      alertError('Debe llenar los campos');
+      return;
+    }
+
+    handleTodoUpdate();
   };
 
   const handleReturn = () => {

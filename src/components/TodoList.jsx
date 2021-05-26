@@ -4,6 +4,8 @@ import '../assets/styles/components/TodoList.scss';
 
 import TodoAppContext from '../context/TodoAppContext';
 
+import EmptyTodoList from './EmptyTodoList';
+
 import TodoCard from './TodoCard';
 
 const TodoList = () => {
@@ -13,7 +15,7 @@ const TodoList = () => {
     <div className='todo-list'>
       <h1>Lista de tareas</h1>
 
-      {todos.length === 0 && <p>No hay tareas agregados!</p>}
+      {todos.length === 0 && <EmptyTodoList />}
 
       <section className='todo-list__container'>
         {todos.map((todo) => (

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import '../assets/styles/pages/UpdateUserAvatar.scss';
 
-import { useAvatar } from '../hooks/useAvatar';
 import defaultAvatar from '../assets/images/default-avatar.png';
+
+import { useAvatar } from '../hooks/useAvatar';
 
 const UpdateUserAvatar = () => {
   const { userAvatar, inputFileRef, handleFileChange, handleUpdateUser } =

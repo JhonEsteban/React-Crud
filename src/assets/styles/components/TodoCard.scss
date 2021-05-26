@@ -1,6 +1,9 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
 .todo-card {
-  background-color: white;
-  box-shadow: 1px 1px 5px 1px #ccc;
+  background-color: $light-color;
+  box-shadow: 1px 1px 5px 1px $light-gray-color;
   border-radius: 10px;
   padding: 30px 25px 15px;
   max-width: 200px;
@@ -13,8 +16,8 @@
     }
 
     .options__btn:first-child {
-      background-color: green;
-      box-shadow: 0px 3px 2px green;
+      background-color: $green-color;
+      box-shadow: 0px 3px 2px $green-color;
 
       &:hover {
         background-color: rgb(3, 88, 3);
@@ -23,9 +26,7 @@
   }
 
   .heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox(space-between);
 
     &__title {
       margin: 0;
@@ -36,7 +37,7 @@
       transition: color, transform 300ms;
 
       &:hover {
-        color: green;
+        color: $green-color;
         transform: scale(1.4);
       }
     }
@@ -49,28 +50,15 @@
 
   .options {
     width: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox(space-between);
 
     &__btn {
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      padding: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.78rem;
-      transition: background-color 200ms;
-
-      span {
-        margin-right: 5px;
-      }
+      @include button;
     }
 
     &__btn:first-child {
-      background-color: blue;
-      box-shadow: 0px 3px 2px blue;
+      background-color: $blue-color;
+      box-shadow: 0px 3px 2px $blue-color;
 
       &:hover {
         background-color: rgb(10, 10, 194);
@@ -78,11 +66,11 @@
     }
 
     &__btn:last-child {
-      background-color: red;
-      box-shadow: 0px 3px 2px #ef0404;
+      background-color: $red-color;
+      box-shadow: 0px 3px 2px $red-shadow;
 
       &:hover {
-        background-color: rgb(173, 13, 13);
+        background-color: $red-shadow;
       }
     }
   }

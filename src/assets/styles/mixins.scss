@@ -1,0 +1,20 @@
+@mixin flexbox($justifyContent: center, $alignItems: center) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+}
+
+@mixin button {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  transition: background-color 200ms;
+
+  span {
+    margin-right: 5px;
+  }
+}

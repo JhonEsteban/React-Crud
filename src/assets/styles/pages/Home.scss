@@ -1,28 +1,19 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
 .home {
   position: relative;
 
   .settings {
-    display: flex;
-    justify-content: flex-start;
+    @include flexbox(flex-start, initial);
     padding: 20px 0;
     column-gap: 20px;
 
     &__btn {
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      padding: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.78rem;
-      transition: background-color 200ms;
-
-      span {
-        margin-right: 5px;
-      }
+      @include button;
 
       &:first-child {
-        background-color: purple;
+        background-color: $purple-color;
         box-shadow: 0px 3px 2px #9a369a;
 
         &:hover {
@@ -31,21 +22,21 @@
       }
 
       &:nth-child(2) {
-        background-color: red;
-        box-shadow: 0px 3px 2px #ef0404;
+        background-color: $red-color;
+        box-shadow: 0px 3px 2px $red-shadow;
 
         &:hover {
-          background-color: #ef0404;
+          background-color: $red-shadow;
         }
       }
 
       &:last-child {
         align-self: flex-end;
-        background-color: red;
-        box-shadow: 0px 3px 2px #ef0404;
+        background-color: $red-color;
+        box-shadow: 0px 3px 2px $red-shadow;
 
         &:hover {
-          background-color: #ef0404;
+          background-color: $red-shadow;
         }
       }
     }
@@ -59,15 +50,15 @@
     bottom: 20px;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
-    background-color: red;
+    background-color: $red-color;
     border: none;
-    color: white;
+    color: $light-color;
     border-radius: 50%;
     box-shadow: 1px 1px 1px 1px #f55757;
     transition: background-color 200ms;
 
     &:hover {
-      background-color: rgb(179, 13, 13);
+      background-color: rgb(212, 16, 16);
     }
 
     i {

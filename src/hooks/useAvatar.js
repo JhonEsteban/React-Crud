@@ -1,15 +1,18 @@
 import { useContext, useRef, useState } from 'react';
-
 import { useHistory } from 'react-router';
 
 import TodoAppContext from '../context/TodoAppContext';
 
+import { useAlerts } from './useAlerts';
+
 export const useAvatar = () => {
+  const history = useHistory();
+
   const [userAvatar, setUserAvatar] = useState('');
   const inputFileRef = useRef(null);
 
   const { user, setUser } = useContext(TodoAppContext);
-  const history = useHistory();
+  const { alertSuccess } = useAlerts();
 
   const handleFileChange = () => {
     const file = inputFileRef.current.files[0];
@@ -25,7 +28,7 @@ export const useAvatar = () => {
       avatar: userAvatar,
     });
 
-    userAvatar && alert('Successfully updated');
+    userAvatar && alertSuccess('Avatar Actualizado', 600);
     history.goBack();
   };
 

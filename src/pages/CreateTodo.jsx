@@ -1,26 +1,25 @@
 import React, { useContext } from 'react';
-
-import TodoAppContext from '../context/TodoAppContext';
-
 import { Link, useHistory } from 'react-router-dom';
 
 import { useForm } from '../hooks/useForm';
+
+import TodoAppContext from '../context/TodoAppContext';
 import { types } from '../types';
+
+import { useAlerts } from '../hooks/useAlerts';
 
 import TodoForm from '../components/TodoForm';
 
 const CreateTodo = () => {
   const history = useHistory();
+
   const { name, description, handleInputChange, resetForm } = useForm();
   const { dispatch } = useContext(TodoAppContext);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const { alertSuccess, alertError } = useAlerts();
 
-    if (!name.trim() || !description.trim()) {
-      alert('Debes llenar los campos');
-      return;
-    }
+  const handleCreateTodo = () => {
+    alertSuccess('Tarea creada', 500);
 
     dispatch({
       type: types.addTodo,
@@ -34,6 +33,17 @@ const CreateTodo = () => {
 
     resetForm();
     history.goBack();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!name.trim() || !description.trim()) {
+      alertError('Debes llenar los campos');
+      return;
+    }
+
+    handleCreateTodo();
   };
 
   return (

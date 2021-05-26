@@ -2,14 +2,21 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 
 import '../assets/styles/components/TodoCard.scss';
+
+import Swal from 'sweetalert2';
+
 import TodoAppContext from '../context/TodoAppContext';
 import { types } from '../types';
+
+import { useAlerts } from '../hooks/useAlerts';
 
 const TodoCard = ({ todo }) => {
   const { id, name, description, completed } = todo;
   const { dispatch, setTodoUpdate } = useContext(TodoAppContext);
 
   const history = useHistory();
+
+  const { alertSuccess, alertQuestion } = useAlerts();
 
   const handleTodoCompleted = (todoId) => {
     dispatch({
@@ -19,9 +26,19 @@ const TodoCard = ({ todo }) => {
   };
 
   const handleTodoDelete = (todoId) => {
-    dispatch({
-      type: types.deleteTodo,
-      payload: todoId,
+    alertQuestion(
+      'Eliminar Tarea',
+      '¿Desea eliminar la tarea?',
+      'Eliminar'
+    ).then((result) => {
+      if (result.isConfirmed) {
+        alertSuccess('Eliminando...', 500);
+
+        dispatch({
+          type: types.deleteTodo,
+          payload: todoId,
+        });
+      }
     });
   };
 

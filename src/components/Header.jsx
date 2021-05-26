@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 
 import '../assets/styles/components/Header.scss';
 
 import defaultAvatar from '../assets/images/default-avatar.png';
-
-import { useHistory } from 'react-router';
 
 import TodoAppContext from '../context/TodoAppContext';
 

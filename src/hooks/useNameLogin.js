@@ -1,14 +1,17 @@
 import { useContext, useState } from 'react';
+import { useHistory } from 'react-router';
 
 import TodoAppContext from '../context/TodoAppContext';
 
-import { useHistory } from 'react-router';
+import { useAlerts } from './useAlerts';
 
 export const useNameLogin = () => {
-  const [userName, setUserName] = useState('');
-  const { user, setUser } = useContext(TodoAppContext);
-
   const history = useHistory();
+
+  const [userName, setUserName] = useState('');
+
+  const { user, setUser } = useContext(TodoAppContext);
+  const { alertSuccess } = useAlerts();
 
   const handleInputChange = ({ target }) => {
     setUserName(target.value);
@@ -18,12 +21,8 @@ export const useNameLogin = () => {
     setUserName('');
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!userName.trim()) {
-      return;
-    }
+  const loginUser = () => {
+    alertSuccess('Iniciando Sesión...', 600);
 
     setUser({
       ...user,
@@ -33,6 +32,16 @@ export const useNameLogin = () => {
 
     resetForm();
     history.replace('/home');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!userName.trim()) {
+      return;
+    }
+
+    loginUser();
   };
 
   return {
