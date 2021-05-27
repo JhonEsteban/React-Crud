@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+
 import { useHistory } from 'react-router';
 
 import '../assets/styles/components/TodoCard.scss';
-
-import Swal from 'sweetalert2';
 
 import TodoAppContext from '../context/TodoAppContext';
 import { types } from '../types';
 
 import { useAlerts } from '../hooks/useAlerts';
+
+import TodoCardOptions from './TodoCardOptions';
+import TodoCardHeading from './TodoCardHeading';
 
 const TodoCard = ({ todo }) => {
   const { id, name, description, completed } = todo;
@@ -49,32 +52,25 @@ const TodoCard = ({ todo }) => {
 
   return (
     <article className={`todo-card ${completed ? 'completed' : ''}`}>
-      <div className='heading'>
-        <h3 className='heading__title'>{name}</h3>
-        <span
-          onClick={() => handleTodoUpdate(todo)}
-          className='btn-update fas fa-pencil-alt'
-        ></span>
-      </div>
+      <TodoCardHeading
+        name={name}
+        todo={todo}
+        handleTodoUpdate={handleTodoUpdate}
+      />
 
       <p className='todo-card__description'>{description}</p>
 
-      <div className='options'>
-        <button
-          onClick={() => handleTodoCompleted(id)}
-          className='options__btn'
-        >
-          <span>Completar</span>
-          <i className='fas fa-check'></i>
-        </button>
-
-        <button onClick={() => handleTodoDelete(id)} className='options__btn'>
-          <span>Eliminar</span>
-          <i className='fas fa-trash'></i>
-        </button>
-      </div>
+      <TodoCardOptions
+        id={id}
+        handleTodoCompleted={handleTodoCompleted}
+        handleTodoDelete={handleTodoDelete}
+      />
     </article>
   );
+};
+
+TodoCard.propTypes = {
+  todo: PropTypes.object.isRequired,
 };
 
 export default TodoCard;

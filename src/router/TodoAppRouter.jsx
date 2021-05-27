@@ -15,18 +15,16 @@ const TodoAppRouter = () => {
 
   return (
     <Router>
-      <div>
-        <Switch>
-          <PublicRoutes
-            exact
-            path='/login'
-            isLogged={isLogged}
-            component={Login}
-          />
+      <Switch>
+        <PublicRoutes
+          exact
+          path='/login'
+          isLogged={isLogged}
+          component={Login}
+        />
 
-          <PrivateRoutes path='/' isLogged={isLogged} component={HomeRoutes} />
-        </Switch>
-      </div>
+        <PrivateRoutes path='/' isLogged={isLogged} component={HomeRoutes} />
+      </Switch>
     </Router>
   );
 };

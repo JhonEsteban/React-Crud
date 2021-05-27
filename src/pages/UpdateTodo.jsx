@@ -60,7 +60,10 @@ const UpdateTodo = ({ history }) => {
     <div className='wrapper animate__animated animate__fadeIn'>
       <h1>Actualizar Tarea</h1>
 
-      <button onClick={handleReturn}>Regresar</button>
+      <button onClick={handleReturn} className='return-btn'>
+        <span>Regresar</span>
+        <i className='fas fa-arrow-left'></i>
+      </button>
 
       <TodoForm
         name={name}

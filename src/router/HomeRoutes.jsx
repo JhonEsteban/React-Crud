@@ -13,19 +13,17 @@ const HomeRoutes = () => {
     <>
       <Header />
 
-      <div>
-        <Switch>
-          <Route exact path='/home' component={Home} />
-          <Route exact path='/createTodo' component={CreateTodo} />
-          <Route exact path='/updateTodo/:todoId' component={UpdateTodo} />
-          <Route
-            exact
-            path='/updateAvatar/:userId'
-            component={UpdateUserAvatar}
-          />
-          <Redirect to='/home' />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path='/home' component={Home} />
+        <Route exact path='/createTodo' component={CreateTodo} />
+        <Route exact path='/updateTodo/:todoId' component={UpdateTodo} />
+        <Route
+          exact
+          path='/updateAvatar/:userId'
+          component={UpdateUserAvatar}
+        />
+        <Redirect to='/home' />
+      </Switch>
     </>
   );
 };

@@ -12,7 +12,7 @@ const TodoList = () => {
   const { todos } = useContext(TodoAppContext);
 
   return (
-    <div className='todo-list'>
+    <section className='todo-list'>
       <h1>Lista de tareas</h1>
 
       {todos.length === 0 && <EmptyTodoList />}
@@ -22,7 +22,7 @@ const TodoList = () => {
           <TodoCard key={todo.id} todo={todo} />
         ))}
       </section>
-    </div>
+    </section>
   );
 };
 

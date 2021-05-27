@@ -9,6 +9,7 @@ import { types } from '../types';
 import { useAlerts } from '../hooks/useAlerts';
 
 import TodoForm from '../components/TodoForm';
+import ReturnButton from '../components/ReturnButton';
 
 const CreateTodo = () => {
   const history = useHistory();
@@ -50,7 +51,9 @@ const CreateTodo = () => {
     <div className='wrapper animate__animated animate__fadeIn'>
       <h1>Crear Tarea</h1>
 
-      <Link to='/home'>Regresar</Link>
+      <Link to='/home'>
+        <ReturnButton />
+      </Link>
 
       <TodoForm
         name={name}

@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 
 import '../assets/styles/pages/Home.scss';
 
-import Swal from 'sweetalert2';
-
 import TodoAppContext from '../context/TodoAppContext';
 import { types } from '../types';
 
 import { useAlerts } from '../hooks/useAlerts';
 
+import HomeSettings from '../components/HomeSettings';
 import TodoList from '../components/TodoList';
+import LogoutButton from '../components/LogoutButton';
 
 const Home = ({ history }) => {
   const { dispatch, resetUser, todos } = useContext(TodoAppContext);
@@ -53,31 +53,18 @@ const Home = ({ history }) => {
   };
 
   return (
-    <div className='home'>
+    <section className='home'>
       <div className='wrapper'>
-        <div className='settings'>
-          <button onClick={createTodo} className='settings__btn'>
-            <span>Crear tarea</span>
-            <i className='fas fa-plus'></i>
-          </button>
-          <button onClick={handleClearTodos} className='settings__btn'>
-            <span>Borrar Tareas</span>
-            <i className='fas fa-trash'></i>
-          </button>
-        </div>
+        <HomeSettings
+          createTodo={createTodo}
+          handleClearTodos={handleClearTodos}
+        />
 
         <TodoList />
 
-        <button
-          onClick={handleLogout}
-          type='button'
-          className='btn-logout'
-          title='Salir'
-        >
-          <i className='fas fa-sign-out-alt'></i>
-        </button>
+        <LogoutButton handleLogout={handleLogout} />
       </div>
-    </div>
+    </section>
   );
 };
 

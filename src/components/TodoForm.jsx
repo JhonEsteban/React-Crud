@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 
 import '../assets/styles/components/TodoForm.scss';
 
@@ -25,12 +26,20 @@ const TodoForm = ({ name, description, handleInputChange, handleSubmit }) => {
         cols='30'
         rows='10'
       ></textarea>
+
       <button className='todo-form__btn'>
         <span>{todoUpdate ? 'Actualizar' : 'Guardar'}</span>
         <i className='fas fa-save'></i>
       </button>
     </form>
   );
+};
+
+TodoAppContext.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default TodoForm;

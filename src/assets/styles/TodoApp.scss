@@ -1,3 +1,6 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -15,5 +18,15 @@ button {
   @media screen and (min-width: 720px) {
     width: 85%;
     margin: auto;
+  }
+}
+
+.return-btn {
+  @include button;
+  background-color: $green-color;
+  box-shadow: 0px 3px 2px $green-color;
+
+  &:hover {
+    background-color: rgb(14, 109, 14);
   }
 }

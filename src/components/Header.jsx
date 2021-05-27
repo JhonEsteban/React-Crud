@@ -6,6 +6,7 @@ import '../assets/styles/components/Header.scss';
 import defaultAvatar from '../assets/images/default-avatar.png';
 
 import TodoAppContext from '../context/TodoAppContext';
+import Profile from './Profile';
 
 const Header = () => {
   const { user } = useContext(TodoAppContext);
@@ -20,23 +21,11 @@ const Header = () => {
       <header className='header'>
         <h2 className='header__title'>{user.name}</h2>
 
-        <section className='profile'>
-          <div className='profile__update' onClick={handleUpdateAvatar}>
-            <span
-              className=' icon fas fa-pencil-alt'
-              title='Editar Avatar'
-            ></span>
-          </div>
-
-          <figure className='avatar'>
-            <img
-              className='avatar__image'
-              src={user.avatar || defaultAvatar}
-              alt='default avatar'
-              width='60'
-            />
-          </figure>
-        </section>
+        <Profile
+          user={user}
+          handleUpdateAvatar={handleUpdateAvatar}
+          defaultAvatar={defaultAvatar}
+        />
       </header>
     </div>
   );
