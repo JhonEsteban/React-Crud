@@ -1,4 +1,4 @@
-import '../assets/styles/components/EmptyTodoList.scss';
+import './EmptyTodoList.scss';
 
 const EmptyTodoList = () => {
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import '../assets/styles/pages/Login.scss';
+import './Login.scss';
 
-import { useNameLogin } from '../hooks/useNameLogin';
+import { useNameLogin } from '../../hooks/useNameLogin';
 
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../../components/loginForm/LoginForm';
 
 const Login = () => {
   const { handleInputChange, handleSubmit, userName } = useNameLogin();

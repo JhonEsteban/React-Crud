@@ -6,7 +6,7 @@ import TodoAppContext from '../context/TodoAppContext';
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
 
-import Login from '../pages/Login';
+import Login from '../pages/login/Login';
 import HomeRoutes from './HomeRoutes';
 
 const TodoAppRouter = () => {

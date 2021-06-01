@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import '../assets/styles/components/TodoForm.scss';
+import './TodoForm.scss';
 
-import TodoAppContext from '../context/TodoAppContext';
+import TodoAppContext from '../../context/TodoAppContext';
 
 const TodoForm = ({ name, description, handleInputChange, handleSubmit }) => {
   const { todoUpdate } = useContext(TodoAppContext);

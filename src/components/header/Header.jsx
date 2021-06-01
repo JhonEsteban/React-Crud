@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 
-import '../assets/styles/components/Header.scss';
+import './Header.scss';
 
-import defaultAvatar from '../assets/images/default-avatar.png';
+import defaultAvatar from '../../assets/images/default-avatar.png';
 
-import TodoAppContext from '../context/TodoAppContext';
-import Profile from './Profile';
+import TodoAppContext from '../../context/TodoAppContext';
+
+import Profile from '../profile/Profile';
 
 const Header = () => {
   const { user } = useContext(TodoAppContext);

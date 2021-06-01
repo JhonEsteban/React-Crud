@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import { useHistory } from 'react-router';
 
-import '../assets/styles/components/TodoCard.scss';
+import './TodoCard.scss';
 
-import TodoAppContext from '../context/TodoAppContext';
-import { types } from '../types';
+import TodoAppContext from '../../context/TodoAppContext';
 
-import { useAlerts } from '../hooks/useAlerts';
+import { types } from '../../types';
+import { useAlerts } from '../../hooks/useAlerts';
 
-import TodoCardOptions from './TodoCardOptions';
-import TodoCardHeading from './TodoCardHeading';
+import TodoCardOptions from '../todoCardOptions/TodoCardOptions';
+import TodoCardHeading from '../todoCardHeading/TodoCardHeading';
 
 const TodoCard = ({ todo }) => {
   const { id, name, description, completed } = todo;

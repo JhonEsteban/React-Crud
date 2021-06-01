@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
-import TodoAppContext from '../context/TodoAppContext';
-import { types } from '../types';
+import TodoAppContext from '../../context/TodoAppContext';
+import { types } from '../../types';
 
-import { useAlerts } from '../hooks/useAlerts';
+import { useAlerts } from '../../hooks/useAlerts';
 
-import TodoForm from '../components/TodoForm';
-import ReturnButton from '../components/ReturnButton';
+import TodoForm from '../../components/todoForm/TodoForm';
+import ReturnButton from '../../components/returnButton/ReturnButton';
 
 const CreateTodo = () => {
   const history = useHistory();

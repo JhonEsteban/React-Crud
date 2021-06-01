@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
-import TodoAppContext from '../context/TodoAppContext';
-import { types } from '../types';
+import TodoAppContext from '../../context/TodoAppContext';
+import { types } from '../../types';
 
-import { useAlerts } from '../hooks/useAlerts';
+import { useAlerts } from '../../hooks/useAlerts';
 
-import TodoForm from '../components/TodoForm';
+import TodoForm from '../../components/todoForm/TodoForm';
 
 const UpdateTodo = ({ history }) => {
   const {

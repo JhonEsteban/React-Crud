@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 
-import '../assets/styles/components/TodoList.scss';
+import './TodoList.scss';
 
-import TodoAppContext from '../context/TodoAppContext';
+import TodoAppContext from '../../context/TodoAppContext';
 
-import EmptyTodoList from './EmptyTodoList';
-
-import TodoCard from './TodoCard';
+import EmptyTodoList from '../emptyTodoList/EmptyTodoList';
+import TodoCard from '../todoCard/TodoCard';
 
 const TodoList = () => {
   const { todos } = useContext(TodoAppContext);

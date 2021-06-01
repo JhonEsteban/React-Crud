@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 
-import '../assets/styles/pages/Home.scss';
+import './Home.scss';
 
-import TodoAppContext from '../context/TodoAppContext';
-import { types } from '../types';
+import TodoAppContext from '../../context/TodoAppContext';
+import { types } from '../../types';
 
-import { useAlerts } from '../hooks/useAlerts';
+import { useAlerts } from '../../hooks/useAlerts';
 
-import HomeSettings from '../components/HomeSettings';
-import TodoList from '../components/TodoList';
-import LogoutButton from '../components/LogoutButton';
+import HomeSettings from '../../components/homeSettings/HomeSettings';
+import TodoList from '../../components/todoList/TodoList';
+import LogoutButton from '../../components/logoutButton/LogoutButton';
 
 const Home = ({ history }) => {
   const { dispatch, resetUser, todos } = useContext(TodoAppContext);
