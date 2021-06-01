@@ -11,7 +11,7 @@ export const useNameLogin = () => {
   const [userName, setUserName] = useState('');
 
   const { user, setUser } = useContext(TodoAppContext);
-  const { alertSuccess } = useAlerts();
+  const { alertSuccess, alertError } = useAlerts();
 
   const handleInputChange = ({ target }) => {
     setUserName(target.value);
@@ -38,6 +38,7 @@ export const useNameLogin = () => {
     e.preventDefault();
 
     if (!userName.trim()) {
+      alertError('Debes ingresar tu nombre');
       return;
     }
 

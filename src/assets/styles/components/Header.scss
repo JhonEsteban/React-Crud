@@ -59,6 +59,7 @@
       text-align: center;
 
       &__image {
+        max-height: 60px;
         border-radius: 50%;
         object-fit: cover;
       }

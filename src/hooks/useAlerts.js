@@ -24,7 +24,7 @@ export const useAlerts = () => {
     });
   };
 
-  const alertError = (title = 'Oops...', text) => {
+  const alertError = (text, title = 'Oops...') => {
     Swal.fire({
       icon: 'error',
       title,

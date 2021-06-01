@@ -13,7 +13,7 @@ const TodoList = () => {
 
   return (
     <section className='todo-list'>
-      <h1>Lista de tareas</h1>
+      <h1 className='todo-list__title'>Lista de tareas</h1>
 
       {todos.length === 0 && <EmptyTodoList />}
 

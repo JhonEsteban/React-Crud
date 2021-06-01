@@ -1,4 +1,8 @@
 .todo-list {
+  &__title {
+    font-size: 1.8rem;
+  }
+
   &__container {
     display: flex;
     flex-wrap: wrap;

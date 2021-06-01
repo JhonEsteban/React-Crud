@@ -44,7 +44,7 @@ const UpdateTodo = ({ history }) => {
     e.preventDefault();
 
     if (!name.trim() || !description.trim()) {
-      alertError('Debe llenar los campos');
+      alertError('Debes llenar los campos');
       return;
     }
 
