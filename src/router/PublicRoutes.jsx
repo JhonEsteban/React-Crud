@@ -1,22 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 
-import { Redirect, Route } from 'react-router-dom';
+import TodoAppContext from '../context/TodoAppContext';
 
-const PublicRoutes = ({ isLogged, component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        !isLogged ? <Component {...props} /> : <Redirect to='/' />
-      }
-    />
-  );
-};
+const PublicRoutes = ({ children }) => {
+  const { user } = useContext(TodoAppContext);
 
-PublicRoutes.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
-  component: PropTypes.func.isRequired,
+  return user.isLogged ? <Navigate to='/' /> : children;
 };
 
 export default PublicRoutes;

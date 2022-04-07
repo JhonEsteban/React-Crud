@@ -1,12 +1,12 @@
 import { useContext, useRef, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import TodoAppContext from '../context/TodoAppContext';
 
 import { useAlerts } from './useAlerts';
 
 export const useAvatar = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [userAvatar, setUserAvatar] = useState('');
   const inputFileRef = useRef(null);
@@ -29,7 +29,7 @@ export const useAvatar = () => {
     });
 
     userAvatar && alertSuccess('Avatar Actualizado', 600);
-    history.goBack();
+    navigate(-1);
   };
 
   return {

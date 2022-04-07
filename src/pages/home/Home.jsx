@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import './Home.scss';
 
@@ -11,12 +12,14 @@ import HomeSettings from '../../components/homeSettings/HomeSettings';
 import TodoList from '../../components/todoList/TodoList';
 import LogoutButton from '../../components/logoutButton/LogoutButton';
 
-const Home = ({ history }) => {
+const Home = () => {
   const { dispatch, resetUser, todos } = useContext(TodoAppContext);
   const { alertSuccess, alertQuestion, alertError } = useAlerts();
 
+  const navigate = useNavigate();
+
   const createTodo = () => {
-    history.push('/createTodo');
+    navigate('/createTodo');
   };
 
   const handleClearTodos = () => {
@@ -46,7 +49,7 @@ const Home = ({ history }) => {
           alertSuccess('Saliendo...', 600);
 
           resetUser();
-          history.push('/login');
+          navigate('/login');
         }
       }
     );

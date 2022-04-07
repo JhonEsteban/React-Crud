@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../hooks/useForm';
 
@@ -9,7 +10,8 @@ import { useAlerts } from '../../hooks/useAlerts';
 
 import TodoForm from '../../components/todoForm/TodoForm';
 
-const UpdateTodo = ({ history }) => {
+const UpdateTodo = () => {
+  const navigate = useNavigate();
   const {
     name,
     description,
@@ -37,7 +39,7 @@ const UpdateTodo = ({ history }) => {
 
     resetForm();
     setTodoUpdate(null);
-    history.goBack();
+    navigate(-1);
   };
 
   const handleSubmit = (e) => {
@@ -53,7 +55,7 @@ const UpdateTodo = ({ history }) => {
 
   const handleReturn = () => {
     setTodoUpdate(null);
-    history.goBack();
+    navigate(-1);
   };
 
   return (

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router';
 
 import './Header.scss';
 
@@ -11,10 +11,10 @@ import Profile from '../profile/Profile';
 
 const Header = () => {
   const { user } = useContext(TodoAppContext);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleUpdateAvatar = () => {
-    history.push(`/updateAvatar/${user.name.toLowerCase()}`);
+    navigate(`/updateAvatar/${user.name.toLowerCase()}`);
   };
 
   return (

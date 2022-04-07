@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import './TodoCard.scss';
 
@@ -17,7 +17,7 @@ const TodoCard = ({ todo }) => {
   const { id, name, description, completed } = todo;
   const { dispatch, setTodoUpdate } = useContext(TodoAppContext);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { alertSuccess, alertQuestion } = useAlerts();
 
@@ -47,7 +47,7 @@ const TodoCard = ({ todo }) => {
 
   const handleTodoUpdate = (todoUpdate) => {
     setTodoUpdate(todoUpdate);
-    history.push(`/updateTodo/${todoUpdate.id}`);
+    navigate(`/updateTodo/${todoUpdate.id}`);
   };
 
   return (

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './Login.scss';
 
 import { useNameLogin } from '../../hooks/useNameLogin';

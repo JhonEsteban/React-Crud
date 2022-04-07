@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../hooks/useForm';
 
@@ -12,7 +12,7 @@ import TodoForm from '../../components/todoForm/TodoForm';
 import ReturnButton from '../../components/returnButton/ReturnButton';
 
 const CreateTodo = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { name, description, handleInputChange, resetForm } = useForm();
   const { dispatch } = useContext(TodoAppContext);
@@ -33,7 +33,7 @@ const CreateTodo = () => {
     });
 
     resetForm();
-    history.goBack();
+    navigate(-1);
   };
 
   const handleSubmit = (e) => {

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from '../components/header/Header';
 
@@ -13,17 +12,14 @@ const HomeRoutes = () => {
     <>
       <Header />
 
-      <Switch>
-        <Route exact path='/home' component={Home} />
-        <Route exact path='/createTodo' component={CreateTodo} />
-        <Route exact path='/updateTodo/:todoId' component={UpdateTodo} />
-        <Route
-          exact
-          path='/updateAvatar/:userId'
-          component={UpdateUserAvatar}
-        />
-        <Redirect to='/home' />
-      </Switch>
+      <Routes>
+        <Route path='/home' element={<Home />} />
+        <Route path='/createTodo' element={<CreateTodo />} />
+        <Route path='/updateTodo/:todoId' element={<UpdateTodo />} />
+        <Route path='/updateAvatar/:userId' element={<UpdateUserAvatar />} />
+
+        <Route path='/' element={<Home />} />
+      </Routes>
     </>
   );
 };

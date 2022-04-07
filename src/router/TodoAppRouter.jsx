@@ -1,7 +1,4 @@
-import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-
-import TodoAppContext from '../context/TodoAppContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
@@ -10,22 +7,28 @@ import Login from '../pages/login/Login';
 import HomeRoutes from './HomeRoutes';
 
 const TodoAppRouter = () => {
-  const { user } = useContext(TodoAppContext);
-  const { isLogged } = user;
-
   return (
-    <Router>
-      <Switch>
-        <PublicRoutes
-          exact
+    <BrowserRouter>
+      <Routes>
+        <Route
           path='/login'
-          isLogged={isLogged}
-          component={Login}
+          element={
+            <PublicRoutes>
+              <Login />
+            </PublicRoutes>
+          }
         />
 
-        <PrivateRoutes path='/' isLogged={isLogged} component={HomeRoutes} />
-      </Switch>
-    </Router>
+        <Route
+          path='/*'
+          element={
+            <PrivateRoutes>
+              <HomeRoutes />
+            </PrivateRoutes>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

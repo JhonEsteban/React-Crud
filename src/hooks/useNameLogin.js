@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router';
 
 import TodoAppContext from '../context/TodoAppContext';
 
 import { useAlerts } from './useAlerts';
 
 export const useNameLogin = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [userName, setUserName] = useState('');
 
@@ -31,7 +31,7 @@ export const useNameLogin = () => {
     });
 
     resetForm();
-    history.replace('/home');
+    navigate('/home');
   };
 
   const handleSubmit = (e) => {
