@@ -6,7 +6,7 @@ import TodoAppContext from '../context/TodoAppContext';
 const PublicRoutes = ({ children }) => {
   const { user } = useContext(TodoAppContext);
 
-  return user.isLogged ? <Navigate to='/' /> : children;
+  return user.isLogged ? <Navigate to='/tasks' /> : children;
 };
 
 export default PublicRoutes;

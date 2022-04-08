@@ -1,11 +1,15 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Header from '../components/header/Header';
 
-import Home from '../pages/home/Home';
-import CreateTodo from '../pages/createTodo/CreateTodo';
-import UpdateTodo from '../pages/updateTodo/UpdateTodo';
-import UpdateUserAvatar from '../pages/updateUserAvatar/UpdateUserAvatar';
+import Tasks from '../pages/task/List';
+import Create from '../pages/task/Create';
+import Update from '../pages/task/Update';
+
+import Profile from '../pages/user/Profile';
+import UpdateAvatar from '../pages/user/UpdateAvatar';
+import UpdateName from '../pages/user/UpdateName';
+import UpdatePassword from '../pages/user/UpdatePassword';
 
 const HomeRoutes = () => {
   return (
@@ -13,12 +17,19 @@ const HomeRoutes = () => {
       <Header />
 
       <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/createTodo' element={<CreateTodo />} />
-        <Route path='/updateTodo/:todoId' element={<UpdateTodo />} />
-        <Route path='/updateAvatar/:userId' element={<UpdateUserAvatar />} />
+        <Route path='/tasks' element={<Tasks />} />
+        <Route path='/tasks/create' element={<Create />} />
+        <Route path='/tasks/:todoId/update' element={<Update />} />
 
-        <Route path='/' element={<Home />} />
+        <Route path='/user/profile' element={<Profile />} />
+        <Route path='/user/profile/updateAvatar' element={<UpdateAvatar />} />
+        <Route path='/user/profile/updateName' element={<UpdateName />} />
+        <Route
+          path='/user/profile/updatePassword'
+          element={<UpdatePassword />}
+        />
+
+        <Route path='*' element={<Navigate to='/tasks' />} />
       </Routes>
     </>
   );

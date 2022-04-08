@@ -1,25 +1,25 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './Home.scss';
+import './styles.scss';
 
-import TodoAppContext from '../../context/TodoAppContext';
-import { types } from '../../types';
+import TodoAppContext from '../../../context/TodoAppContext';
+import { types } from '../../../types';
 
-import { useAlerts } from '../../hooks/useAlerts';
+import { useAlerts } from '../../../hooks/useAlerts';
 
-import HomeSettings from '../../components/homeSettings/HomeSettings';
-import TodoList from '../../components/todoList/TodoList';
-import LogoutButton from '../../components/logoutButton/LogoutButton';
+import HomeSettings from '../../../components/homeSettings/HomeSettings';
+import TodoList from '../../../components/todoList/TodoList';
+import LogoutButton from '../../../components/logoutButton/LogoutButton';
 
-const Home = () => {
+const List = () => {
   const { dispatch, resetUser, todos } = useContext(TodoAppContext);
   const { alertSuccess, alertQuestion, alertError } = useAlerts();
 
   const navigate = useNavigate();
 
   const createTodo = () => {
-    navigate('/createTodo');
+    navigate('./create');
   };
 
   const handleClearTodos = () => {
@@ -49,7 +49,7 @@ const Home = () => {
           alertSuccess('Saliendo...', 600);
 
           resetUser();
-          navigate('/login');
+          navigate('/auth/login');
         }
       }
     );
@@ -71,4 +71,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default List;

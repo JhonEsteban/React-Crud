@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Profile = ({ user, handleUpdateAvatar, defaultAvatar }) => (
+const UserProfile = ({ user, handleUpdateAvatar, defaultAvatar }) => (
   <section className='profile'>
     <div className='profile__update' onClick={handleUpdateAvatar}>
       <span className=' icon fas fa-pencil-alt' title='Editar Avatar'></span>
@@ -17,10 +17,10 @@ const Profile = ({ user, handleUpdateAvatar, defaultAvatar }) => (
   </section>
 );
 
-Profile.propTypes = {
+UserProfile.propTypes = {
   user: PropTypes.object.isRequired,
   handleUpdateAvatar: PropTypes.func.isRequired,
   defaultAvatar: PropTypes.string.isRequired,
 };
 
-export default Profile;
+export default UserProfile;

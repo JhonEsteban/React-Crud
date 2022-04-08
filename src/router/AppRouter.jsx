@@ -3,18 +3,28 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
 
-import Login from '../pages/login/Login';
+import Login from '../pages/auth/Login';
+import Register from '../pages/auth/Register';
 import HomeRoutes from './HomeRoutes';
 
-const TodoAppRouter = () => {
+const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route
-          path='/login'
+          path='/auth/login'
           element={
             <PublicRoutes>
               <Login />
+            </PublicRoutes>
+          }
+        />
+
+        <Route
+          path='/auth/register'
+          element={
+            <PublicRoutes>
+              <Register />
             </PublicRoutes>
           }
         />
@@ -32,4 +42,4 @@ const TodoAppRouter = () => {
   );
 };
 
-export default TodoAppRouter;
+export default AppRouter;

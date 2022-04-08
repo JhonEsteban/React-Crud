@@ -1,16 +1,16 @@
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../../../hooks/useForm';
 
-import TodoAppContext from '../../context/TodoAppContext';
-import { types } from '../../types';
+import TodoAppContext from '../../../context/TodoAppContext';
+import { types } from '../../../types';
 
-import { useAlerts } from '../../hooks/useAlerts';
+import { useAlerts } from '../../../hooks/useAlerts';
 
-import TodoForm from '../../components/todoForm/TodoForm';
+import TodoForm from '../../../components/todoForm/TodoForm';
 
-const UpdateTodo = () => {
+const Update = () => {
   const navigate = useNavigate();
   const {
     name,
@@ -77,4 +77,4 @@ const UpdateTodo = () => {
   );
 };
 
-export default UpdateTodo;
+export default Update;

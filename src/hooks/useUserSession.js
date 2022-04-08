@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const initialUser = {
+  userId: 0,
   name: '',
   avatar: '',
   isLogged: false,

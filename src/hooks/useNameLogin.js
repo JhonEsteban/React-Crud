@@ -28,10 +28,11 @@ export const useNameLogin = () => {
       ...user,
       name: userName.trim(),
       isLogged: true,
+      userId: Date.now(),
     });
 
     resetForm();
-    navigate('/home');
+    navigate('/tasks');
   };
 
   const handleSubmit = (e) => {

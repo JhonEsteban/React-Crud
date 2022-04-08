@@ -7,14 +7,14 @@ import defaultAvatar from '../../assets/images/default-avatar.png';
 
 import TodoAppContext from '../../context/TodoAppContext';
 
-import Profile from '../profile/Profile';
+import UserProfile from '../userProfile/UserProfile';
 
 const Header = () => {
   const { user } = useContext(TodoAppContext);
   const navigate = useNavigate();
 
   const handleUpdateAvatar = () => {
-    navigate(`/updateAvatar/${user.name.toLowerCase()}`);
+    navigate(`/user/profile`);
   };
 
   return (
@@ -22,7 +22,7 @@ const Header = () => {
       <header className='header'>
         <h2 className='header__title'>{user.name}</h2>
 
-        <Profile
+        <UserProfile
           user={user}
           handleUpdateAvatar={handleUpdateAvatar}
           defaultAvatar={defaultAvatar}

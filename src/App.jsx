@@ -7,7 +7,7 @@ import TodoAppContext from './context/TodoAppContext';
 import { useUserSession } from './hooks/useUserSession';
 import { useTodoList } from './hooks/useTodoList';
 
-import TodoAppRouter from './router/TodoAppRouter';
+import AppRouter from './router/AppRouter';
 
 const TodoApp = () => {
   const { user, setUser, resetUser } = useUserSession();
@@ -26,7 +26,7 @@ const TodoApp = () => {
 
   return (
     <TodoAppContext.Provider value={globalData}>
-      <TodoAppRouter />
+      <AppRouter />
     </TodoAppContext.Provider>
   );
 };

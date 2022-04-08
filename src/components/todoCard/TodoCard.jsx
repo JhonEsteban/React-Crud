@@ -47,7 +47,7 @@ const TodoCard = ({ todo }) => {
 
   const handleTodoUpdate = (todoUpdate) => {
     setTodoUpdate(todoUpdate);
-    navigate(`/updateTodo/${todoUpdate.id}`);
+    navigate(`./${todoUpdate.id}/update`);
   };
 
   return (
