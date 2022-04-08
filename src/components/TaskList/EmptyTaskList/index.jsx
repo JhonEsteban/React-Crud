@@ -1,6 +1,6 @@
-import './EmptyTodoList.scss';
+import './styles.scss';
 
-const EmptyTodoList = () => {
+const EmptyTaskList = () => {
   return (
     <div className='empty-todos empty-todos  animate__animated animate__fadeIn'>
       <i className='fas fa-exclamation-circle empty-todos__icon'></i>
@@ -9,4 +9,4 @@ const EmptyTodoList = () => {
   );
 };
 
-export default EmptyTodoList;
+export default EmptyTaskList;

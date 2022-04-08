@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const HomeSettings = ({ createTodo, handleClearTodos }) => (
+const TasksOptions = ({ createTodo, handleClearTodos }) => (
   <section className='settings'>
     <button onClick={createTodo} className='settings__btn'>
       <span>Crear tarea</span>
@@ -14,9 +14,9 @@ const HomeSettings = ({ createTodo, handleClearTodos }) => (
   </section>
 );
 
-HomeSettings.propTypes = {
+TasksOptions.propTypes = {
   createTodo: PropTypes.func.isRequired,
   handleClearTodos: PropTypes.func.isRequired,
 };
 
-export default HomeSettings;
+export default TasksOptions;

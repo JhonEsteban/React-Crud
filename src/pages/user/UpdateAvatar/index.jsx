@@ -6,8 +6,8 @@ import defaultAvatar from '../../../assets/images/default-avatar.png';
 
 import { useAvatar } from '../../../hooks/useAvatar';
 
-import ReturnButton from '../../../components/returnButton/ReturnButton';
-import UpdateAvatarForm from '../../../components/updateAvatarForm/UpdateAvatarForm';
+import BackButton from '../../../components/BackButton';
+import UpdateAvatarForm from '../../../components/UpdateAvatarForm';
 
 const UpdateAvatar = () => {
   const { handleUpdateUser, handleFileChange, inputFileRef, userAvatar } =
@@ -18,7 +18,7 @@ const UpdateAvatar = () => {
       <h1>Actualizar Avatar</h1>
 
       <Link to='/tasks'>
-        <ReturnButton />
+        <BackButton />
       </Link>
 
       <UpdateAvatarForm

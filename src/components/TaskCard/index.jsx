@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-
+import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 
-import './TodoCard.scss';
+import PropTypes from 'prop-types';
+
+import './styles.scss';
 
 import TodoAppContext from '../../context/TodoAppContext';
 
 import { types } from '../../types';
 import { useAlerts } from '../../hooks/useAlerts';
 
-import TodoCardOptions from '../todoCardOptions/TodoCardOptions';
-import TodoCardHeading from '../todoCardHeading/TodoCardHeading';
+import Heading from './Heading';
+import Options from './Options';
 
 const TodoCard = ({ todo }) => {
   const { id, name, description, completed } = todo;
@@ -52,15 +52,11 @@ const TodoCard = ({ todo }) => {
 
   return (
     <article className={`todo-card ${completed ? 'completed' : ''}`}>
-      <TodoCardHeading
-        name={name}
-        todo={todo}
-        handleTodoUpdate={handleTodoUpdate}
-      />
+      <Heading name={name} todo={todo} handleTodoUpdate={handleTodoUpdate} />
 
       <p className='todo-card__description'>{description}</p>
 
-      <TodoCardOptions
+      <Options
         id={id}
         handleTodoCompleted={handleTodoCompleted}
         handleTodoDelete={handleTodoDelete}

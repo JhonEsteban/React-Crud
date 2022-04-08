@@ -2,7 +2,7 @@ import './styles.scss';
 
 import { useNameLogin } from '../../../hooks/useNameLogin';
 
-import LoginForm from '../../../components/loginForm/LoginForm';
+import AuthForm from '../../../components/AuthForm';
 
 const Login = () => {
   const { handleInputChange, handleSubmit, userName } = useNameLogin();
@@ -13,7 +13,7 @@ const Login = () => {
         <div className='login__container animate__animated animate__fadeIn'>
           <div className='hero'></div>
 
-          <LoginForm
+          <AuthForm
             handleSubmit={handleSubmit}
             handleInputChange={handleInputChange}
             userName={userName}

@@ -8,7 +8,7 @@ import { types } from '../../../types';
 
 import { useAlerts } from '../../../hooks/useAlerts';
 
-import TodoForm from '../../../components/todoForm/TodoForm';
+import TaskForm from '../../../components/TaskForm';
 
 const Update = () => {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ const Update = () => {
         <i className='fas fa-arrow-left'></i>
       </button>
 
-      <TodoForm
+      <TaskForm
         name={name}
         description={description}
         handleInputChange={handleInputChange}

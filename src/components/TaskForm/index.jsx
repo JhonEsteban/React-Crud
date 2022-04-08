@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
+
 import PropTypes from 'prop-types';
 
-import './TodoForm.scss';
+import './styles.scss';
 
 import TodoAppContext from '../../context/TodoAppContext';
 
-const TodoForm = ({ name, description, handleInputChange, handleSubmit }) => {
+const TaskForm = ({ name, description, handleInputChange, handleSubmit }) => {
   const { todoUpdate } = useContext(TodoAppContext);
 
   return (
@@ -42,4 +43,4 @@ TodoAppContext.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
 
-export default TodoForm;
+export default TaskForm;

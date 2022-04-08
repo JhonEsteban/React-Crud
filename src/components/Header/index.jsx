@@ -1,13 +1,12 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 
-import './Header.scss';
+import './styles.scss';
 
 import defaultAvatar from '../../assets/images/default-avatar.png';
 
 import TodoAppContext from '../../context/TodoAppContext';
-
-import UserProfile from '../userProfile/UserProfile';
+import UserProfile from './UserProfile';
 
 const Header = () => {
   const { user } = useContext(TodoAppContext);

@@ -8,8 +8,8 @@ import { types } from '../../../types';
 
 import { useAlerts } from '../../../hooks/useAlerts';
 
-import TodoForm from '../../../components/todoForm/TodoForm';
-import ReturnButton from '../../../components/returnButton/ReturnButton';
+import TaskForm from '../../../components/TaskForm';
+import BackButton from '../../../components/BackButton';
 
 const Create = () => {
   const navigate = useNavigate();
@@ -52,10 +52,10 @@ const Create = () => {
       <h1>Crear Tarea</h1>
 
       <Link to='/tasks'>
-        <ReturnButton />
+        <BackButton />
       </Link>
 
-      <TodoForm
+      <TaskForm
         name={name}
         description={description}
         handleInputChange={handleInputChange}

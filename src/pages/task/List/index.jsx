@@ -8,9 +8,9 @@ import { types } from '../../../types';
 
 import { useAlerts } from '../../../hooks/useAlerts';
 
-import HomeSettings from '../../../components/homeSettings/HomeSettings';
-import TodoList from '../../../components/todoList/TodoList';
-import LogoutButton from '../../../components/logoutButton/LogoutButton';
+import TasksOptions from '../../../components/TasksOptions';
+import TaskList from '../../../components/TaskList';
+import LogoutButton from '../../../components/LogoutButton';
 
 const List = () => {
   const { dispatch, resetUser, todos } = useContext(TodoAppContext);
@@ -58,12 +58,12 @@ const List = () => {
   return (
     <section className='home'>
       <div className='wrapper'>
-        <HomeSettings
+        <TasksOptions
           createTodo={createTodo}
           handleClearTodos={handleClearTodos}
         />
 
-        <TodoList />
+        <TaskList />
 
         <LogoutButton handleLogout={handleLogout} />
       </div>

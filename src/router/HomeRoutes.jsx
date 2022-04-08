@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Header from '../components/header/Header';
+import Header from '../components/Header';
 
 import Tasks from '../pages/task/List';
 import Create from '../pages/task/Create';
@@ -24,10 +24,7 @@ const HomeRoutes = () => {
         <Route path='/user/profile' element={<Profile />} />
         <Route path='/user/profile/updateAvatar' element={<UpdateAvatar />} />
         <Route path='/user/profile/updateName' element={<UpdateName />} />
-        <Route
-          path='/user/profile/updatePassword'
-          element={<UpdatePassword />}
-        />
+        <Route path='/user/profile/updatePassword' element={<UpdatePassword />} />
 
         <Route path='*' element={<Navigate to='/tasks' />} />
       </Routes>
