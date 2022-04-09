@@ -5,6 +5,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background-color: rgb(254 253 253);
+  box-sizing: border-box;
 }
 
 button {
@@ -12,8 +13,8 @@ button {
 }
 
 .wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   @media screen and (min-width: 720px) {
     width: 85%;

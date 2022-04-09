@@ -1,26 +1,42 @@
+import { Link } from 'react-router-dom';
+
 import './styles.scss';
 
-import { useNameLogin } from '../../../hooks/useNameLogin';
-
-import AuthForm from '../../../components/AuthForm';
+import AuthLayout from '../../../components/Layouts/AuthLayout';
 
 const Login = () => {
-  const { handleInputChange, handleSubmit, userName } = useNameLogin();
-
   return (
-    <section className='login'>
-      <div className='wrapper'>
-        <div className='login__container animate__animated animate__fadeIn'>
-          <div className='hero'></div>
+    <AuthLayout description='¡Bienvenido inicia sesión!'>
+      <form className='login-form'>
+        <input
+          className='login-form__input'
+          type='email'
+          placeholder='Correo electrónico'
+          autoComplete='off'
+          autoFocus
+        />
 
-          <AuthForm
-            handleSubmit={handleSubmit}
-            handleInputChange={handleInputChange}
-            userName={userName}
-          />
+        <input
+          className='login-form__input'
+          type='password'
+          placeholder='Contraseña'
+          autoComplete='off'
+        />
+
+        <div className='login-options'>
+          <label className='input-container'>
+            <span>Recordar datos</span>
+            <input type='checkbox' />
+          </label>
+
+          <Link to='/auth/register'>Ir a registrarse</Link>
         </div>
-      </div>
-    </section>
+
+        <button className='login-btn' type='button'>
+          Iniciar sesión
+        </button>
+      </form>
+    </AuthLayout>
   );
 };
 
