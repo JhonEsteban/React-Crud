@@ -1,40 +1,87 @@
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import './styles.scss';
 
 import AuthLayout from '../../../components/Layouts/AuthLayout';
+import ErrorFormMessage from '../../../components/ErrorFormMessage';
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (userData) => {};
+
   return (
     <AuthLayout description='¡Bienvenido registrate!'>
-      <form className='register-form'>
+      <form onSubmit={handleSubmit(onSubmit)} className='register-form'>
         <input
-          className='register-form__input'
+          className={`register-form__input ${errors.name ? 'error' : ''}`}
           type='text'
+          name='name'
           placeholder='Nombre'
-          autoComplete='off'
           autoFocus
+          autoComplete='off'
+          {...register('name', {
+            required: {
+              value: true,
+              message: 'El nombre es requerido',
+            },
+          })}
         />
 
+        {errors.name && <ErrorFormMessage message={errors.name.message} />}
+
         <input
-          className='register-form__input'
+          className={`register-form__input ${errors.email ? 'error' : ''}`}
           type='email'
+          name='email'
           placeholder='Correo electrónico'
           autoComplete='off'
+          {...register('email', {
+            required: {
+              value: true,
+              message: 'El correo electrónico es requerido',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: 'Correo electrónico no válido',
+              },
+            },
+          })}
         />
 
+        {errors.email && <ErrorFormMessage message={errors.email.message} />}
+
         <input
-          className='register-form__input'
+          className={`register-form__input ${errors.password ? 'error' : ''}`}
           type='password'
+          name='password'
           placeholder='Contraseña'
           autoComplete='off'
+          {...register('password', {
+            required: {
+              value: true,
+              message: 'La contraseña es requerida',
+            },
+            minLength: {
+              value: 6,
+              message: 'La contraseña debe tener al menos 6 caracteres',
+            },
+          })}
         />
+
+        {errors.password && (
+          <ErrorFormMessage message={errors.password.message} />
+        )}
 
         <div className='register-options'>
           <Link to='/auth/login'>Ir a iniciar sesión</Link>
         </div>
 
-        <button className='register-btn' type='button'>
+        <button className='register-btn' type='submit'>
           Registrarse
         </button>
       </form>

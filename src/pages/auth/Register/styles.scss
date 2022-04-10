@@ -3,12 +3,24 @@
 
   &__input {
     width: 100%;
-    border: 1px solid #ccc;
     box-sizing: border-box;
     padding: 12px;
     margin: 8px 0;
     border-radius: 4px;
-    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &::placeholder {
+      font-size: 0.9rem;
+    }
+
+    &.error {
+      border: 1px solid #b80505;
+
+      &::placeholder {
+        color: #b80505;
+      }
+    }
   }
 
   .register-btn {
@@ -23,10 +35,10 @@
     cursor: pointer;
     font-size: 1rem;
   }
-}
 
-.register-options {
-  margin: 20px 0 25px;
-  display: flex;
-  justify-content: flex-end;
+  .register-options {
+    margin: 20px 0 25px;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
