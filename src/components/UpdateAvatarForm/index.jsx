@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const UpdateAvatarForm = ({
   handleUpdateUser,
   handleFileChange,
@@ -25,13 +23,5 @@ const UpdateAvatarForm = ({
     </button>
   </form>
 );
-
-UpdateAvatarForm.propTypes = {
-  handleUpdateUser: PropTypes.func.isRequired,
-  handleFileChange: PropTypes.func.isRequired,
-  inputFileRef: PropTypes.any.isRequired,
-  userAvatar: PropTypes.string.isRequired,
-  defaultAvatar: PropTypes.string.isRequired,
-};
 
 export default UpdateAvatarForm;

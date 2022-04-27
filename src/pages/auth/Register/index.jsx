@@ -1,10 +1,13 @@
-import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './styles.scss';
 
 import AuthLayout from '../../../components/Layouts/AuthLayout';
 import ErrorFormMessage from '../../../components/ErrorFormMessage';
+
+import { registerUser } from '../../../redux/auth/middlewares';
 
 const Register = () => {
   const {
@@ -13,7 +16,12 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (userData) => {};
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const onSubmit = (userData) => {
+    dispatch(registerUser(userData));
+  };
 
   return (
     <AuthLayout description='¡Bienvenido registrate!'>
@@ -78,7 +86,13 @@ const Register = () => {
         )}
 
         <div className='register-options'>
-          <Link to='/auth/login'>Ir a iniciar sesión</Link>
+          <button
+            onClick={() => navigate('/auth/login')}
+            className='btn-link'
+            type='button'
+          >
+            Ir a iniciar sesión
+          </button>
         </div>
 
         <button className='register-btn' type='submit'>

@@ -1,13 +1,13 @@
-.register-form {
+.password-form {
   text-align: center;
 
   &__input {
     width: 100%;
+    border: 1px solid #ccc;
     box-sizing: border-box;
     padding: 12px;
     margin: 8px 0;
     border-radius: 4px;
-    border: 1px solid #ccc;
     outline: none;
 
     &::placeholder {
@@ -23,10 +23,10 @@
     }
   }
 
-  .register-btn {
+  &__btn {
+    display: block;
     width: 100%;
     padding: 10px 10px;
-    display: block;
     margin: 20px auto;
     background-color: black;
     border: 1px solid black;
@@ -36,12 +36,12 @@
     font-size: 1rem;
   }
 
-  .register-options {
-    margin: 20px 0 25px;
-    display: flex;
-    justify-content: flex-end;
+  .options {
+    &__name {
+      display: block;
+    }
 
-    .btn-link {
+    &__btn {
       position: relative;
       padding: 0;
       background-color: transparent;

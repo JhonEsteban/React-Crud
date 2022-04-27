@@ -1,12 +1,10 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import TodoAppContext from '../context/TodoAppContext';
-
 const PublicRoutes = ({ children }) => {
-  const { user } = useContext(TodoAppContext);
+  const auth = useSelector((state) => state.auth);
 
-  return user.isLogged ? <Navigate to='/tasks' /> : children;
+  return auth.isAuthenticated ? <Navigate to='/tasks' /> : children;
 };
 
 export default PublicRoutes;

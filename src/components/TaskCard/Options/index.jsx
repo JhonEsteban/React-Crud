@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 const TodoCardOptions = ({ id, handleTodoCompleted, handleTodoDelete }) => (
   <div className='options'>
     <button onClick={() => handleTodoCompleted(id)} className='options__btn'>
@@ -13,11 +11,5 @@ const TodoCardOptions = ({ id, handleTodoCompleted, handleTodoDelete }) => (
     </button>
   </div>
 );
-
-TodoCardOptions.propTypes = {
-  id: PropTypes.number.isRequired,
-  handleTodoCompleted: PropTypes.func.isRequired,
-  handleTodoDelete: PropTypes.func.isRequired,
-};
 
 export default TodoCardOptions;

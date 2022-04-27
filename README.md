@@ -1,39 +1,47 @@
-# React Crud App 💻💼
-
-This project is a crud with pages per action managed with routes, the information is available globally with the Context API, the actions are executed with useReducer and everything is persistent with localStorage.
+# Task React App 💻💼
 
 ## Desktop design
 
-![](https://i.imgur.com/QytbGly.png)
-![](https://i.imgur.com/7mAdZLT.png)
+![]()
 
 ## Technologies used: 📕
 
 - [React](https://reactjs.org/ 'Click here')
-- [React Router](https://reactrouter.com/web/guides/quick-start 'Click here')
+- [React Router Dom](https://reactrouter.com/web/guides/quick-start 'Click here')
+- [Redux](https://es.redux.js.org/ 'Click here')
+- [React Redux](https://react-redux.js.org/ 'Click here')
 - [Sass](https://sass-lang.com/ 'Click here')
+
+## Backend created for this app: 🛠
+
+👉 [Task Node App Repository](https://github.com/JhonEsteban/task-node-app 'Click here') 👈
 
 ## To run the project: 👇
 
 1. Clone the repository
 
 ```
-git clone https://github.com/JhonEsteban/React-Crud-App.git
+git clone https://github.com/JhonEsteban/task-react-app.git
 ```
 
 2. Install the node modules
 
 ```
-npm install
+yarn add
 ```
 
-3. Start the dev server
+3. Create the .env file and add the required environment variables
 
 ```
-npm start
+REACT_APP_API_BASE=
+```
+
+4. Start the dev server
+
+```
+yarn start
 ```
 
 ### My social networks 👋🏼
 
-- [Linkedin](https://www.linkedin.com/in/jhon-esteban-herrera-zabala-6b960b196 'My Linkendin')
-- [Twitter](https://twitter.com/JhonDev_19 'My Twitter')
+[Linkedin](https://www.linkedin.com/in/jhon-esteban-herrera 'My Linkendin')

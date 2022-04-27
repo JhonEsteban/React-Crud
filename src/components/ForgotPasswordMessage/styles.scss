@@ -1,0 +1,31 @@
+.forgot-password {
+  text-align: center;
+
+  &__title {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: rgb(113, 110, 110);
+  }
+
+  &__btn {
+    position: relative;
+    padding: 0;
+    background-color: transparent;
+    color: rgb(13, 13, 175);
+    border: none;
+    margin: 0;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: rgb(13, 13, 175);
+      top: 23px;
+    }
+  }
+}

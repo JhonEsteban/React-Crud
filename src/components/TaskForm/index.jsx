@@ -1,14 +1,6 @@
-import { useContext } from 'react';
-
-import PropTypes from 'prop-types';
-
 import './styles.scss';
 
-import TodoAppContext from '../../context/TodoAppContext';
-
 const TaskForm = ({ name, description, handleInputChange, handleSubmit }) => {
-  const { todoUpdate } = useContext(TodoAppContext);
-
   return (
     <form onSubmit={handleSubmit} className='todo-form'>
       <input
@@ -29,18 +21,10 @@ const TaskForm = ({ name, description, handleInputChange, handleSubmit }) => {
       ></textarea>
 
       <button className='todo-form__btn'>
-        <span>{todoUpdate ? 'Actualizar' : 'Guardar'}</span>
         <i className='fas fa-save'></i>
       </button>
     </form>
   );
-};
-
-TodoAppContext.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default TaskForm;

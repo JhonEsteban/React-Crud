@@ -1,12 +1,10 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import TodoAppContext from '../context/TodoAppContext';
-
 const PrivateRoutes = ({ children }) => {
-  const { user } = useContext(TodoAppContext);
+  const auth = useSelector((state) => state.auth);
 
-  return user.isLogged ? children : <Navigate to='/auth/login' />;
+  return auth.isAuthenticated ? children : <Navigate to='/auth/login' />;
 };
 
 export default PrivateRoutes;

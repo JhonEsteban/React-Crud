@@ -1,22 +1,25 @@
-import PropTypes from 'prop-types';
+const TasksOptions = () => {
+  const handleCreateTask = () => {
+    console.log('create task');
+  };
 
-const TasksOptions = ({ createTodo, handleClearTodos }) => (
-  <section className='settings'>
-    <button onClick={createTodo} className='settings__btn'>
-      <span>Crear tarea</span>
-      <i className='fas fa-plus'></i>
-    </button>
+  const handleClearTasks = () => {
+    console.log('clear task');
+  };
 
-    <button onClick={handleClearTodos} className='settings__btn'>
-      <span>Borrar Tareas</span>
-      <i className='fas fa-trash'></i>
-    </button>
-  </section>
-);
+  return (
+    <section className='settings'>
+      <button onClick={handleCreateTask} className='settings__btn'>
+        <span>Crear tarea</span>
+        <i className='fas fa-plus'></i>
+      </button>
 
-TasksOptions.propTypes = {
-  createTodo: PropTypes.func.isRequired,
-  handleClearTodos: PropTypes.func.isRequired,
+      <button onClick={handleClearTasks} className='settings__btn'>
+        <span>Borrar Tareas</span>
+        <i className='fas fa-trash'></i>
+      </button>
+    </section>
+  );
 };
 
 export default TasksOptions;

@@ -1,19 +1,53 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './styles.scss';
 
 import AuthLayout from '../../../components/Layouts/AuthLayout';
 import ErrorFormMessage from '../../../components/ErrorFormMessage';
 
+import { loginUser } from '../../../redux/auth/middlewares';
+
+import {
+  resetRememberEmailAction,
+  setRememberEmailAction,
+} from '../../../redux/auth/actions';
+
 const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
+    setValue,
   } = useForm();
 
-  const onSubmit = (userData) => {};
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoading, rememberEmail } = useSelector((state) => state.auth);
+
+  const onSubmit = (userData) => {
+    dispatch(loginUser(userData));
+  };
+
+  const onChange = (e) => {
+    const isChecked = e.target.checked;
+    const { email } = getValues();
+
+    isChecked
+      ? dispatch(setRememberEmailAction(email))
+      : dispatch(resetRememberEmailAction());
+  };
+
+  useEffect(() => {
+    if (rememberEmail) {
+      setValue('email', rememberEmail);
+      setValue('loginCheckbox', !!rememberEmail);
+    }
+  }, [rememberEmail, setValue]);
 
   return (
     <AuthLayout description='¡Bienvenido inicia sesión!'>
@@ -62,15 +96,34 @@ const Login = () => {
 
         <div className='login-options'>
           <label className='input-container'>
-            <span>Recordar datos</span>
-            <input type='checkbox' />
+            <input
+              type='checkbox'
+              {...register('loginCheckbox', {
+                onChange: (e) => onChange(e),
+              })}
+            />
+            <span>Recordar correo</span>
           </label>
 
-          <Link to='/auth/register'>Ir a registrarse</Link>
+          <button
+            onClick={() => navigate('/auth/register')}
+            className='btn-link'
+            type='button'
+          >
+            Ir a registrarse
+          </button>
         </div>
 
-        <button className='login-btn' type='submit'>
-          Iniciar sesión
+        <button className='login-btn' type='submit' disabled={isLoading}>
+          {isLoading ? 'Cargando...' : 'Iniciar sesión'}
+        </button>
+
+        <button
+          onClick={() => navigate('/auth/forgot-password')}
+          className='btn-link'
+          type='button'
+        >
+          ¿Olvidaste tu contraseña?
         </button>
       </form>
     </AuthLayout>
