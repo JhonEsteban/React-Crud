@@ -1,23 +1,23 @@
+import './styles.scss';
+
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import './styles.scss';
-
-import AuthLayout from '../../../components/Layouts/AuthLayout';
-import ErrorFormMessage from '../../../components/ErrorFormMessage';
-
 import { registerUser } from '../../../redux/auth/middlewares';
 
+import AuthLayout from '../../../components/auth/AuthLayout';
+import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
+
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const onSubmit = (userData) => {
     dispatch(registerUser(userData));

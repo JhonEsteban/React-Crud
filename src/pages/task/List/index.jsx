@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 
 import { getAllTasks } from '../../../redux/task/middlewares';
 
-import TasksOptions from '../../../components/TasksOptions';
-import TaskList from '../../../components/TaskList';
-import LogoutButton from '../../../components/LogoutButton';
+import TasksOptions from '../../../components/task/TasksOptions';
+import TaskList from '../../../components/task/TaskList';
+import LogoutButton from '../../../components/auth/LogoutButton';
 
 const List = () => {
   const dispatch = useDispatch();

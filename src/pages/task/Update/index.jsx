@@ -5,13 +5,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getTaskById } from '../../../redux/task/middlewares';
 import { resetCurrentTaskAction } from '../../../redux/task/actions';
 
-import TaskForm from '../../../components/TaskForm';
+import TaskForm from '../../../components/task/TaskForm';
 
 const Update = () => {
-  const { taskId = '' } = useParams();
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { taskId = '' } = useParams();
 
   const handleGoBack = () => {
     dispatch(resetCurrentTaskAction());

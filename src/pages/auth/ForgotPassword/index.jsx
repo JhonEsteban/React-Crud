@@ -1,18 +1,21 @@
+import './styles.scss';
+
 import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
-
-import './styles.scss';
 
 import { forgotMyPassword } from '../../../redux/auth/middlewares';
 import { resetForgotPasswordDataAction } from '../../../redux/auth/actions';
 
-import AuthLayout from '../../../components/Layouts/AuthLayout';
-import ForgotPasswordMessage from '../../../components/ForgotPasswordMessage';
-import ErrorFormMessage from '../../../components/ErrorFormMessage';
+import AuthLayout from '../../../components/auth/AuthLayout';
+import ForgotPasswordMessage from '../../../components/auth/ForgotPasswordMessage';
+import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
 
 const ForgotPassword = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -21,9 +24,6 @@ const ForgotPassword = () => {
 
   const { forgotPassword } = useSelector((state) => state.auth);
   const { emailWasSent, email } = forgotPassword;
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const onSubmit = (email) => {
     dispatch(forgotMyPassword(email));

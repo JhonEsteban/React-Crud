@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteAllTasks } from '../../redux/task/middlewares';
+import { deleteAllTasks } from '../../../redux/task/middlewares';
 
 const TasksOptions = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { tasks } = useSelector((state) => state.task);
 

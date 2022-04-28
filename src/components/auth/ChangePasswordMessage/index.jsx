@@ -1,11 +1,11 @@
+import './styles.scss';
+
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { resetRecoverAccount } from '../../redux/auth/actions';
+import { resetRecoverAccount } from '../../../redux/auth/actions';
 
-import AuthLayout from '../Layouts/AuthLayout';
-
-import './styles.scss';
+import AuthLayout from '../../auth/AuthLayout';
 
 const ChangePasswordMessage = () => {
   const dispatch = useDispatch();

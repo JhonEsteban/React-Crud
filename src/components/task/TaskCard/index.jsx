@@ -3,11 +3,11 @@ import './styles.scss';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { deleteTask } from '../../redux/task/middlewares';
+import { deleteTask } from '../../../redux/task/middlewares';
 
 const TodoCard = ({ id: taskId, title, description, isDone }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUpdateTask = () => {
     navigate(`/tasks/${taskId}/update`);

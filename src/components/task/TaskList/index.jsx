@@ -1,6 +1,6 @@
-import { useSelector } from 'react-redux';
-
 import './styles.scss';
+
+import { useSelector } from 'react-redux';
 
 import EmptyTaskList from './EmptyTaskList';
 import TaskLoader from './TaskLoader';

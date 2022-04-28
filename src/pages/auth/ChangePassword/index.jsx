@@ -1,16 +1,19 @@
+import './styles.scss';
+
 import { useForm } from 'react-hook-form';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import './styles.scss';
-
-import AuthLayout from '../../../components/Layouts/AuthLayout';
-import ErrorFormMessage from '../../../components/ErrorFormMessage';
-import ChangePasswordMessage from '../../../components/ChangePasswordMessage';
-
 import { changePassword } from '../../../redux/auth/middlewares';
 
+import AuthLayout from '../../../components/auth/AuthLayout';
+import ChangePasswordMessage from '../../../components/auth/ChangePasswordMessage';
+import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
+
 const ChangePassword = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -26,9 +29,6 @@ const ChangePassword = () => {
 
   const { recoverAccount } = useSelector((state) => state.auth);
   const { passwordWasChanged } = recoverAccount;
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const onSubmit = ({ passwordTwo }) => {
     dispatch(changePassword({ newPassword: passwordTwo }, token));

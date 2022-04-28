@@ -4,10 +4,10 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import { getAuthStatus } from '../redux/auth/middlewares';
 
+import AppLoader from '../components/app/AppLoader';
+
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
-
-import AppLoader from '../components/AppLoader';
 
 import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';
@@ -16,15 +16,12 @@ import ChangePassword from '../pages/auth/ChangePassword';
 
 import HomeRoutes from './HomeRoutes';
 
-// import { getAllTasks } from '../redux/task/middlewares';
-
 const AppRouter = () => {
   const dispatch = useDispatch();
   const { validateSession } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getAuthStatus());
-    // dispatch(getAllTasks());
   }, [dispatch]);
 
   if (validateSession) {

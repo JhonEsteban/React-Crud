@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { logOutUser } from '../../redux/auth/middlewares';
+import { logOutUser } from '../../../redux/auth/middlewares';
 
 const LogoutButton = () => {
   const dispatch = useDispatch();

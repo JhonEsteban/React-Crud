@@ -1,16 +1,11 @@
-import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router';
-
 import './styles.scss';
+
+import { useSelector } from 'react-redux';
+
 import UserProfile from './UserProfile';
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
-  // const navigate = useNavigate();
-
-  // const handleUpdateAvatar = () => {
-  //   navigate(`/user/profile`);
-  // };
 
   return (
     <div className='wrapper'>

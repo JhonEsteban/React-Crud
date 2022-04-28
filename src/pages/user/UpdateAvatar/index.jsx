@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
-import BackButton from '../../../components/BackButton';
-import UpdateAvatarForm from '../../../components/UpdateAvatarForm';
+import BackButton from '../../../components/task/BackButton';
+import UpdateAvatarForm from '../../../components/user/UpdateAvatarForm';
 
 const UpdateAvatar = () => {
   return (

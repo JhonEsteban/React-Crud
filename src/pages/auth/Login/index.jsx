@@ -1,22 +1,24 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-
 import './styles.scss';
 
-import AuthLayout from '../../../components/Layouts/AuthLayout';
-import ErrorFormMessage from '../../../components/ErrorFormMessage';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { loginUser } from '../../../redux/auth/middlewares';
 
 import {
-  resetRememberEmailAction,
   setRememberEmailAction,
+  resetRememberEmailAction,
 } from '../../../redux/auth/actions';
 
+import AuthLayout from '../../../components/auth/AuthLayout';
+import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
+
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -25,8 +27,6 @@ const Login = () => {
     setValue,
   } = useForm();
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { isLoading, rememberEmail } = useSelector((state) => state.auth);
 
   const onSubmit = (userData) => {

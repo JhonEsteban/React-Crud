@@ -1,5 +1,5 @@
-import BackButton from '../../../components/BackButton';
-import TaskForm from '../../../components/TaskForm';
+import BackButton from '../../../components/task/BackButton';
+import TaskForm from '../../../components/task/TaskForm';
 
 const Create = () => {
   return (
@@ -7,7 +7,7 @@ const Create = () => {
       <h1>Crear Tarea</h1>
 
       <BackButton />
-      <TaskForm />
+      <TaskForm isToCreate />
     </div>
   );
 };

@@ -6,10 +6,10 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { createTask, updateTask } from '../../redux/task/middlewares';
+import { createTask, updateTask } from '../../../redux/task/middlewares';
 
 import FormLoader from './FormLoader';
-import ErrorFormMessage from '../ErrorFormMessage';
+import ErrorFormMessage from '../../app/ErrorFormMessage';
 
 const TaskForm = ({ isToCreate, taskId }) => {
   const dispatch = useDispatch();

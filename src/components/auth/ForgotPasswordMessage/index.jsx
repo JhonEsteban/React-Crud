@@ -1,11 +1,11 @@
+import './styles.scss';
+
 import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { resetForgotPasswordDataAction } from '../../redux/auth/actions';
-
-import './styles.scss';
+import { resetForgotPasswordDataAction } from '../../../redux/auth/actions';
 
 const ForgotPasswordMessage = ({ email }) => {
   const dispatch = useDispatch();
