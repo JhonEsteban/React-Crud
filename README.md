@@ -2,7 +2,7 @@
 
 ## Desktop design
 
-![]()
+![](https://i.imgur.com/qA5vfIB.png)
 
 ## Technologies used: 📕
 

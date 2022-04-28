@@ -1,18 +1,38 @@
 import './styles.scss';
 
-import Heading from './Heading';
-import Options from './Options';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const TodoCard = ({ todo }) => {
-  const { id, name, description, completed } = todo;
+import { deleteTask } from '../../redux/task/middlewares';
+
+const TodoCard = ({ id: taskId, title, description, isDone }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleUpdateTask = () => {
+    navigate(`/tasks/${taskId}/update`);
+  };
+
+  const handleDeleteTask = () => {
+    dispatch(deleteTask(taskId));
+  };
 
   return (
-    <article className={`todo-card ${completed ? 'completed' : ''}`}>
-      <Heading name={name} todo={todo} />
+    <article className={`task-card ${isDone ? 'completed' : ''}`}>
+      <h3 className='task-card__title'>{title}</h3>
+      <p className='task-card__description'>{description}</p>
 
-      <p className='todo-card__description'>{description}</p>
+      <div className='options'>
+        <button onClick={handleUpdateTask} className='options__btn'>
+          <span>Actualizar</span>
+          <i className='fas fa-trash'></i>
+        </button>
 
-      <Options id={id} />
+        <button onClick={handleDeleteTask} className='options__btn'>
+          <span>Eliminar</span>
+          <i className='fas fa-trash'></i>
+        </button>
+      </div>
     </article>
   );
 };

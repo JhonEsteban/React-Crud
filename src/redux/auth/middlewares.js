@@ -27,6 +27,7 @@ import {
   stopLoaderAction,
   validateSessionAction,
 } from './actions';
+import { logOutClearTasksAction } from '../task/actions';
 
 const registerUser = (user) => {
   const query = `${urlBase}/auth/register`;
@@ -101,6 +102,7 @@ const logOutUser = () => {
     showLoadAlert('Cerrando sesión...');
 
     dispatch(logOutUserAction());
+    dispatch(logOutClearTasksAction());
     dispatch(stopLoaderAction());
 
     const { isLoading } = getState().auth;

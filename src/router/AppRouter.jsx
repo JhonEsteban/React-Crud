@@ -16,12 +16,15 @@ import ChangePassword from '../pages/auth/ChangePassword';
 
 import HomeRoutes from './HomeRoutes';
 
+// import { getAllTasks } from '../redux/task/middlewares';
+
 const AppRouter = () => {
   const dispatch = useDispatch();
   const { validateSession } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getAuthStatus());
+    // dispatch(getAllTasks());
   }, [dispatch]);
 
   if (validateSession) {

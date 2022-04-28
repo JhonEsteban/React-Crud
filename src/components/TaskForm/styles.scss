@@ -13,6 +13,25 @@
     border-radius: 7px;
     margin: 15px 0 15px;
     outline: none;
+    font-family: 'Poppins', sans-serif;
+
+    &::placeholder {
+      font-size: 0.9rem;
+    }
+
+    &.error {
+      border: 1px solid #b80505;
+
+      &::placeholder {
+        color: #b80505;
+      }
+    }
+  }
+
+  &__check {
+    display: block;
+    margin: 20px 0;
+    cursor: pointer;
   }
 
   &__btn {

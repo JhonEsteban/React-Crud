@@ -19,12 +19,15 @@ const HomeRoutes = () => {
       <Routes>
         <Route path='/tasks' element={<Tasks />} />
         <Route path='/tasks/create' element={<Create />} />
-        <Route path='/tasks/:todoId/update' element={<Update />} />
+        <Route path='/tasks/:taskId/update' element={<Update />} />
 
         <Route path='/user/profile' element={<Profile />} />
         <Route path='/user/profile/updateAvatar' element={<UpdateAvatar />} />
         <Route path='/user/profile/updateName' element={<UpdateName />} />
-        <Route path='/user/profile/updatePassword' element={<UpdatePassword />} />
+        <Route
+          path='/user/profile/updatePassword'
+          element={<UpdatePassword />}
+        />
 
         <Route path='*' element={<Navigate to='/tasks' />} />
       </Routes>
