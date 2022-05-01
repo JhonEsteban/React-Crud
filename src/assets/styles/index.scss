@@ -8,30 +8,8 @@ body {
   box-sizing: border-box;
 }
 
-button {
+button,
+input,
+textarea {
   font-family: 'Poppins', sans-serif;
-}
-
-input {
-  font-family: 'Poppins', sans-serif;
-}
-
-.wrapper {
-  padding-left: 10px;
-  padding-right: 10px;
-
-  @media screen and (min-width: 720px) {
-    width: 85%;
-    margin: auto;
-  }
-}
-
-.return-btn {
-  @include button;
-  background-color: $green-color;
-  box-shadow: 0px 3px 2px $green-color;
-
-  &:hover {
-    background-color: rgb(14, 109, 14);
-  }
 }

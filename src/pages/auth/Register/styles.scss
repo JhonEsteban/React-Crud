@@ -1,39 +1,15 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
 .register-form {
   text-align: center;
 
   &__input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    outline: none;
-
-    &::placeholder {
-      font-size: 0.9rem;
-    }
-
-    &.error {
-      border: 1px solid #b80505;
-
-      &::placeholder {
-        color: #b80505;
-      }
-    }
+    @include input;
   }
 
   .register-btn {
-    width: 100%;
-    padding: 10px 10px;
-    display: block;
-    margin: 20px auto;
-    background-color: black;
-    border: 1px solid black;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+    @include button($dark-color, initial, 1rem);
   }
 
   .register-options {
@@ -42,24 +18,7 @@
     justify-content: flex-end;
 
     .btn-link {
-      position: relative;
-      padding: 0;
-      background-color: transparent;
-      color: rgb(13, 13, 175);
-      border: none;
-      margin: 0;
-      font-size: 1rem;
-      cursor: pointer;
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: rgb(13, 13, 175);
-        top: 23px;
-      }
+      @include linkButton;
     }
   }
 }

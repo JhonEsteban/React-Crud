@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { createTask, updateTask } from '../../../redux/task/middlewares';
 
-import FormLoader from './FormLoader';
+import TaskLoader from '../TaskLoader';
 import ErrorFormMessage from '../../app/ErrorFormMessage';
 
 const TaskForm = ({ isToCreate, taskId }) => {
@@ -39,13 +39,13 @@ const TaskForm = ({ isToCreate, taskId }) => {
   return (
     <>
       {isLoadingTaskForm ? (
-        <FormLoader />
+        <TaskLoader />
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className='todo-form'>
+        <form onSubmit={handleSubmit(onSubmit)} className='task-form'>
           <input
             name='title'
             type='text'
-            className={errors.title ? 'error' : ''}
+            className={`task-form__input  ${errors.title ? 'error' : ''}`}
             placeholder='Título'
             autoComplete='off'
             autoFocus
@@ -54,6 +54,10 @@ const TaskForm = ({ isToCreate, taskId }) => {
                 value: true,
                 message: 'El título es requerido',
               },
+              maxLength: {
+                value: 40,
+                message: 'El título no puede tener más de 40 caracteres',
+              },
             })}
           />
 
@@ -61,7 +65,7 @@ const TaskForm = ({ isToCreate, taskId }) => {
 
           <textarea
             name='description'
-            className={errors.description ? 'error' : ''}
+            className={`task-form__input  ${errors.description ? 'error' : ''}`}
             placeholder='Descripción'
             cols='30'
             rows='10'
@@ -70,6 +74,10 @@ const TaskForm = ({ isToCreate, taskId }) => {
                 value: true,
                 message: 'La descrición es requerida',
               },
+              maxLength: {
+                value: 120,
+                message: 'La descripción no puede tener más de 120 caracteres',
+              },
             })}
           ></textarea>
 
@@ -77,14 +85,14 @@ const TaskForm = ({ isToCreate, taskId }) => {
             <ErrorFormMessage message={errors.description.message} />
           )}
 
-          <label className='todo-form__check'>
+          <label className='task-form__check'>
             <input type='checkbox' {...register('isDone')} />
             <span>Completar tarea</span>
           </label>
 
-          <button className='todo-form__btn' type='submit'>
+          <button className='task-form__btn' type='submit'>
+            <span className='fas fa-save icon'></span>
             <span>{isToCreate ? 'Crear' : 'Actualizar'}</span>
-            <i className='fas fa-save'></i>
           </button>
         </form>
       )}

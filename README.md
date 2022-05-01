@@ -1,8 +1,18 @@
 # Task React App 💻💼
 
-## Desktop design
+Task application with user authentication, CRUD operations for to-do tasks and user profile update (name, password and profile image).
+
+### Login
 
 ![](https://i.imgur.com/qA5vfIB.png)
+
+### Home
+
+![](https://i.imgur.com/eZsiKC0.png)
+
+### Profile
+
+![](https://i.imgur.com/6SXSuuO.png)
 
 ## Technologies used: 📕
 

@@ -2,9 +2,9 @@ import './styles.scss';
 
 const AppLoader = () => {
   return (
-    <div className='loader-container'>
+    <section className='loader-container'>
       <span className='loader'></span>
-    </div>
+    </section>
   );
 };
 

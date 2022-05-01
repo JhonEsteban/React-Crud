@@ -27,7 +27,7 @@ const ChangePassword = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get('token') || '';
 
-  const { recoverAccount } = useSelector((state) => state.auth);
+  const { isLoading, recoverAccount } = useSelector((state) => state.auth);
   const { passwordWasChanged } = recoverAccount;
 
   const onSubmit = ({ passwordTwo }) => {
@@ -98,8 +98,12 @@ const ChangePassword = () => {
               <ErrorFormMessage message={errors.passwordTwo.message} />
             )}
 
-            <button type='submit' className='password-form__btn'>
-              Cambiar contraseña
+            <button
+              type='submit'
+              className='password-form__btn'
+              disabled={isLoading}
+            >
+              {isLoading ? 'Espere por favor...' : 'Cambiar contraseña'}
             </button>
 
             <div className='options'>

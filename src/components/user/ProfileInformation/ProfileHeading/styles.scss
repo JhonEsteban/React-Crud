@@ -1,0 +1,30 @@
+@import '../../../../assets/styles/variables.scss';
+@import '../../../../assets/styles/mixins.scss';
+
+.profile-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+
+  img {
+    border-radius: 4px;
+  }
+
+  .load-image {
+    &__text {
+      display: block;
+    }
+
+    &__input {
+      margin: 0 0 15px;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    &__btn {
+      @include button($dark-color);
+      margin: 0 0 15px;
+    }
+  }
+}

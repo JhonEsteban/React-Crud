@@ -115,7 +115,7 @@ const Login = () => {
         </div>
 
         <button className='login-btn' type='submit' disabled={isLoading}>
-          {isLoading ? 'Cargando...' : 'Iniciar sesión'}
+          {isLoading ? 'Espere por favor...' : 'Iniciar sesión'}
         </button>
 
         <button

@@ -1,14 +1,16 @@
+import './styles.scss';
+
 import BackButton from '../../../components/task/BackButton';
 import TaskForm from '../../../components/task/TaskForm';
 
 const Create = () => {
   return (
-    <div className='wrapper animate__animated animate__fadeIn'>
-      <h1>Crear Tarea</h1>
+    <section className='create animate__animated animate__fadeIn'>
+      <h1 className='create__title'>Crear Tarea</h1>
 
       <BackButton />
       <TaskForm isToCreate />
-    </div>
+    </section>
   );
 };
 

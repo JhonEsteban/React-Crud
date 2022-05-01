@@ -1,0 +1,46 @@
+.profile-data {
+  .data {
+    &__name {
+      margin: 10px 0;
+
+      span {
+        &:first-child {
+          font-weight: 600;
+        }
+
+        &:last-child {
+          text-transform: capitalize;
+          opacity: 0.9;
+        }
+      }
+    }
+
+    &__email {
+      margin: 10px 0;
+
+      span {
+        &:first-child {
+          font-weight: 600;
+        }
+
+        &:last-child {
+          opacity: 0.9;
+        }
+      }
+    }
+
+    &__count {
+      margin: 0 0 20px;
+
+      span {
+        &:first-child {
+          font-weight: 600;
+        }
+
+        &:last-child {
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}

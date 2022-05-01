@@ -7,7 +7,6 @@ import { getAllTasks } from '../../../redux/task/middlewares';
 
 import TasksOptions from '../../../components/task/TasksOptions';
 import TaskList from '../../../components/task/TaskList';
-import LogoutButton from '../../../components/auth/LogoutButton';
 
 const List = () => {
   const dispatch = useDispatch();
@@ -17,12 +16,9 @@ const List = () => {
   }, [dispatch]);
 
   return (
-    <section className='home'>
-      <div className='wrapper'>
-        <TasksOptions />
-        <TaskList />
-        <LogoutButton />
-      </div>
+    <section className='tasks'>
+      <TasksOptions />
+      <TaskList />
     </section>
   );
 };

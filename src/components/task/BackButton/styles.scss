@@ -1,0 +1,7 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.back-btn {
+  @include button($green-color);
+  margin-bottom: 15px;
+}

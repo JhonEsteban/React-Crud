@@ -1,0 +1,20 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.settings {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 20px;
+
+  &__btn {
+    &--one {
+      @include button($blue-color);
+    }
+
+    &--two {
+      @include button($red-color);
+    }
+  }
+}

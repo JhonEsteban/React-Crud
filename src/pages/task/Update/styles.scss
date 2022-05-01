@@ -1,0 +1,12 @@
+@import '../../../assets/styles/mixins.scss';
+
+.update {
+  @include wrapper;
+  padding-top: 20px;
+  padding-bottom: 50px;
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 16px 0;
+  }
+}

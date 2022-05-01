@@ -1,0 +1,15 @@
+@import '../../../assets/styles/mixins.scss';
+
+.user-profile {
+  @include wrapper;
+  padding-top: 45px;
+  padding-bottom: 50px;
+
+  &__title {
+    margin: 16px 0;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

@@ -2,8 +2,8 @@ import './styles.scss';
 
 const TaskLoader = () => {
   return (
-    <div>
-      <h1 className='loader'>Cargando...</h1>
+    <div className='task-loader'>
+      <span className='loader'></span>
     </div>
   );
 };

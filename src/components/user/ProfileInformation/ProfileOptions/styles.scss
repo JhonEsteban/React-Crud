@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/variables.scss';
+@import '../../../../assets/styles/mixins.scss';
+
+.profile-options {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+
+  @media screen and (min-width: 1024px) {
+    width: 48%;
+    grid-template-columns: 1fr 1fr;
+    place-items: flex-start;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 40%;
+  }
+
+  &__btn {
+    &--one {
+      @include button($blue-color, 220px);
+    }
+
+    &--two {
+      @include button($red-color, 220px);
+    }
+  }
+}

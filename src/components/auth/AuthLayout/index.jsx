@@ -1,21 +1,28 @@
 import './styles.scss';
 
+import PropTypes from 'prop-types';
+
 const AuthLayout = ({ children, description }) => {
   return (
-    <section className='login'>
-      <div className='wrapper'>
-        <section className='login__container'>
-          <section className='auth-container'>
-            <h1 className='auth-container__title'>Task App</h1>
-            <p className='auth-container__description'>{description}</p>
+    <section className='auth'>
+      <div className='auth-wrapper'>
+        <section className='content'>
+          <div className='form-container'>
+            <h1 className='form-container__title'>Task App</h1>
+            <p className='form-container__description'>{description}</p>
             {children}
-          </section>
+          </div>
 
-          <section className='hero'></section>
+          <div className='banner'></div>
         </section>
       </div>
     </section>
   );
+};
+
+AuthLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+  description: PropTypes.string,
 };
 
 export default AuthLayout;

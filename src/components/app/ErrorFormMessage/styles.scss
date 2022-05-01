@@ -1,4 +1,6 @@
+@import '../../../assets/styles/variables.scss';
+
 .error {
-  color: #b80505;
+  color: $red-color;
   font-size: 0.9rem;
 }

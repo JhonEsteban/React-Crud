@@ -2,7 +2,7 @@ import './styles.scss';
 
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { registerUser } from '../../../redux/auth/middlewares';
 
@@ -18,6 +18,8 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const { isLoading } = useSelector((state) => state.auth);
 
   const onSubmit = (userData) => {
     dispatch(registerUser(userData));
@@ -95,8 +97,8 @@ const Register = () => {
           </button>
         </div>
 
-        <button className='register-btn' type='submit'>
-          Registrarse
+        <button className='register-btn' type='submit' disabled={isLoading}>
+          {isLoading ? 'Espere por favor...' : 'Registrarse'}
         </button>
       </form>
     </AuthLayout>

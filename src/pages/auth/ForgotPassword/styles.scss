@@ -1,3 +1,6 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
 .forgot-form {
   text-align: center;
 
@@ -9,59 +12,16 @@
   }
 
   &__input {
-    width: 100%;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 4px;
-    outline: none;
-
-    &::placeholder {
-      font-size: 0.9rem;
-    }
-
-    &.error {
-      border: 1px solid #b80505;
-
-      &::placeholder {
-        color: #b80505;
-      }
-    }
+    @include input;
   }
 
   &__btn {
-    display: block;
-    width: 100%;
-    padding: 10px 10px;
-    margin: 20px auto;
-    background-color: black;
-    border: 1px solid black;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
+    @include button($dark-color, initial, 1rem);
+    margin: 20px 0;
   }
 
   &__link {
-    position: relative;
-    padding: 0;
-    background-color: transparent;
-    color: rgb(13, 13, 175);
-    border: none;
-    margin: 0;
-    font-size: 1rem;
-    cursor: pointer;
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: rgb(13, 13, 175);
-      top: 23px;
-    }
+    @include linkButton;
   }
 
   .options {
@@ -72,24 +32,7 @@
     }
 
     &__btn {
-      position: relative;
-      padding: 0;
-      background-color: transparent;
-      color: rgb(13, 13, 175);
-      border: none;
-      margin: 0;
-      font-size: 1rem;
-      cursor: pointer;
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: rgb(13, 13, 175);
-        top: 23px;
-      }
+      @include linkButton;
     }
   }
 }

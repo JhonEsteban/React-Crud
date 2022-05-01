@@ -1,0 +1,7 @@
+.information {
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

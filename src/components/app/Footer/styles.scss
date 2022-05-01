@@ -1,0 +1,46 @@
+@import '../../../assets/styles/variables.scss';
+
+.footer {
+  padding: 40px 0;
+  background-color: $dark-color;
+  color: $light-color;
+  display: grid;
+  place-items: center;
+  row-gap: 30px;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .heading {
+    text-align: center;
+
+    .link {
+      color: $light-color;
+    }
+
+    &__text {
+      margin: 10px 0;
+    }
+
+    &__author {
+      margin: 0;
+    }
+  }
+
+  .details {
+    text-align: center;
+
+    .link {
+      color: $light-color;
+    }
+
+    &__portfolio {
+      margin: 10px 0;
+    }
+
+    &__copy {
+      margin: 0;
+    }
+  }
+}

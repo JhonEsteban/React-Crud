@@ -1,11 +1,12 @@
 @import '../../../../assets/styles/variables.scss';
 
 .empty-todos {
-  max-width: 320px;
+  max-width: 300px;
   padding: 10px 5px 2px;
-  background-color: orange;
-  box-shadow: 2px 2px 4px 0px #f3a20f;
-  border-radius: 10px;
+  background-color: $red-color;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+  font-size: 1rem;
   color: $light-color;
   text-align: center;
 

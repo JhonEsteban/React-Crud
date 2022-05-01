@@ -1,0 +1,25 @@
+@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.update-name {
+  @include wrapper;
+  padding-top: 45px;
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 16px 0;
+  }
+
+  .form {
+    max-width: 450px;
+
+    &__input {
+      @include input;
+    }
+
+    &__btn {
+      @include button($blue-color, 280px);
+      margin-top: 20px;
+    }
+  }
+}

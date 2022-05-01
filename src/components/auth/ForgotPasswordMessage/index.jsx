@@ -39,4 +39,5 @@ const ForgotPasswordMessage = ({ email }) => {
 ForgotPasswordMessage.propTypes = {
   email: PropTypes.string.isRequired,
 };
+
 export default ForgotPasswordMessage;

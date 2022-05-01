@@ -1,3 +1,5 @@
+import './styles.scss';
+
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -22,18 +24,20 @@ const TasksOptions = () => {
       <button
         onClick={handleCreateTask}
         className='settings__btn settings__btn--one'
+        type='button'
       >
+        <span className='fas fa-plus icon'></span>
         <span>Crear tarea</span>
-        <i className='fas fa-plus'></i>
       </button>
 
       {tasks.length !== 0 && (
         <button
           onClick={handleClearTasks}
           className='settings__btn settings__btn--two'
+          type='button'
         >
+          <span className='fas fa-trash icon'></span>
           <span>Borrar Tareas</span>
-          <i className='fas fa-trash'></i>
         </button>
       )}
     </section>

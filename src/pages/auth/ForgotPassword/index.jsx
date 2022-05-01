@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     formState: { errors },
   } = useForm();
 
-  const { forgotPassword } = useSelector((state) => state.auth);
+  const { isLoading, forgotPassword } = useSelector((state) => state.auth);
   const { emailWasSent, email } = forgotPassword;
 
   const onSubmit = (email) => {
@@ -61,8 +61,12 @@ const ForgotPassword = () => {
 
           {errors.email && <ErrorFormMessage message={errors.email.message} />}
 
-          <button type='submit' className='forgot-form__btn'>
-            Cambiar mi contraseña
+          <button
+            type='submit'
+            className='forgot-form__btn'
+            disabled={isLoading}
+          >
+            {isLoading ? 'Espere por favor...' : ' Cambiar mi contraseña'}
           </button>
 
           <button
@@ -81,7 +85,7 @@ const ForgotPassword = () => {
               className='options__btn'
               type='button'
             >
-              Registrate
+              Ir a registrarse
             </button>
           </div>
         </form>
