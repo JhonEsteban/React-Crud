@@ -35,7 +35,10 @@ const UpdatePassword = () => {
 
       <h1 className='update-password__title'>Actualizar contraseña</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className='form'>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className='form animate__animated animate__fadeIn'
+      >
         <input
           type='password'
           className={`form__input ${

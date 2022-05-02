@@ -2,7 +2,14 @@
 @import '../../../assets/styles/mixins.scss';
 
 .password-form {
+  width: 100%;
+  max-width: 380px;
   text-align: center;
+
+  @media screen and (min-width: 920px) {
+    width: 380px;
+    max-width: initial;
+  }
 
   &__input {
     @include input;

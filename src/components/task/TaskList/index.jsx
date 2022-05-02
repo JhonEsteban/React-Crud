@@ -10,7 +10,7 @@ const TaskList = () => {
   const { tasks, isLoadingTasks } = useSelector((state) => state.task);
 
   return (
-    <section className='task-list '>
+    <section className='task-list animate__animated animate__fadeIn'>
       <h1 className='task-list__title'>Lista de tareas</h1>
 
       {!isLoadingTasks && tasks.length === 0 && <EmptyTaskList />}

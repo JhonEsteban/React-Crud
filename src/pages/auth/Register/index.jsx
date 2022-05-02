@@ -31,7 +31,7 @@ const Register = () => {
     <AuthLayout description='¡Bienvenido registrate!'>
       <form onSubmit={handleSubmit(onSubmit)} className='register-form'>
         <input
-          className={`register-form__input ${
+          className={`register-form__input animate__animated animate__fadeIn ${
             errors.name || errors.emptyName ? 'error' : ''
           }`}
           type='text'
@@ -69,7 +69,9 @@ const Register = () => {
         )}
 
         <input
-          className={`register-form__input ${errors.email ? 'error' : ''}`}
+          className={`register-form__input animate__animated animate__fadeIn ${
+            errors.email ? 'error' : ''
+          }`}
           type='email'
           name='email'
           placeholder='Correo electrónico'
@@ -89,7 +91,7 @@ const Register = () => {
         {errors.email && <ErrorFormMessage message={errors.email.message} />}
 
         <input
-          className={`register-form__input ${
+          className={`register-form__input animate__animated animate__fadeIn ${
             errors.password || errors.emptyPassword ? 'error' : ''
           }`}
           type='password'

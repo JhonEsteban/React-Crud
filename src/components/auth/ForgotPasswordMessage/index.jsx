@@ -17,7 +17,7 @@ const ForgotPasswordMessage = ({ email }) => {
   };
 
   return (
-    <section className='forgot-password'>
+    <section className='forgot-password animate__animated animate__fadeIn'>
       <h1 className='forgot-password__title'>¡Revisa tu correo!</h1>
 
       <p className='forgot-password__description'>

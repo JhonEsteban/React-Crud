@@ -19,7 +19,7 @@ const Update = () => {
   }, [taskId, dispatch]);
 
   return (
-    <section className='update animate__animated animate__fadeIn'>
+    <section className='update'>
       <h1 className='update__title'>Actualizar Tarea</h1>
       <BackButton />
 

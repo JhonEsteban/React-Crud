@@ -5,7 +5,7 @@ import TaskForm from '../../../components/task/TaskForm';
 
 const Create = () => {
   return (
-    <section className='create animate__animated animate__fadeIn'>
+    <section className='create'>
       <h1 className='create__title'>Crear Tarea</h1>
 
       <BackButton />

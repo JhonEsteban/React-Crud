@@ -35,7 +35,10 @@ const UpdateName = () => {
 
       <h1 className='update-name_-title'>Actualizar nombre</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className='form'>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className='form animate__animated animate__fadeIn'
+      >
         <input
           type='text'
           name='newName'

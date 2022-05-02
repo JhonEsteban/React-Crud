@@ -20,6 +20,8 @@ const TaskForm = ({ isToCreate, taskId }) => {
     handleSubmit,
     formState: { errors },
     setValue,
+    setError,
+    clearErrors,
   } = useForm();
 
   const onSubmit = (task) => {
@@ -41,11 +43,16 @@ const TaskForm = ({ isToCreate, taskId }) => {
       {isLoadingTaskForm ? (
         <TaskLoader />
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className='task-form'>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='task-form animate__animated animate__fadeIn'
+        >
           <input
             name='title'
             type='text'
-            className={`task-form__input  ${errors.title ? 'error' : ''}`}
+            className={`task-form__input  ${
+              errors.title || errors.emptyTitle ? 'error' : ''
+            }`}
             placeholder='Título'
             autoComplete='off'
             autoFocus
@@ -58,31 +65,63 @@ const TaskForm = ({ isToCreate, taskId }) => {
                 value: 40,
                 message: 'El título no puede tener más de 40 caracteres',
               },
+              validate: (value) => {
+                const validField = value.trim() !== '';
+                validField && clearErrors('emptyTitle');
+
+                return (
+                  validField ||
+                  setError('emptyTitle', {
+                    message: 'El título no debe estar vacío',
+                  })
+                );
+              },
             })}
           />
 
           {errors.title && <ErrorFormMessage message={errors.title.message} />}
 
+          {errors.emptyTitle && (
+            <ErrorFormMessage message={errors.emptyTitle.message} />
+          )}
+
           <textarea
             name='description'
-            className={`task-form__input  ${errors.description ? 'error' : ''}`}
+            className={`task-form__input  ${
+              errors.description || errors.emptyDescription ? 'error' : ''
+            }`}
             placeholder='Descripción'
             cols='30'
             rows='10'
             {...register('description', {
               required: {
                 value: true,
-                message: 'La descrición es requerida',
+                message: 'La descripción es requerida',
               },
               maxLength: {
                 value: 120,
                 message: 'La descripción no puede tener más de 120 caracteres',
+              },
+              validate: (value) => {
+                const validField = value.trim() !== '';
+                validField && clearErrors('emptyDescription');
+
+                return (
+                  validField ||
+                  setError('emptyDescription', {
+                    message: 'La descripción no debe estar vacía',
+                  })
+                );
               },
             })}
           ></textarea>
 
           {errors.description && (
             <ErrorFormMessage message={errors.description.message} />
+          )}
+
+          {errors.emptyDescription && (
+            <ErrorFormMessage message={errors.emptyDescription.message} />
           )}
 
           <label className='task-form__check'>

@@ -9,7 +9,9 @@ const AuthLayout = ({ children, description }) => {
         <section className='content'>
           <div className='form-container'>
             <h1 className='form-container__title'>Task App</h1>
-            <p className='form-container__description'>{description}</p>
+            <p className='form-container__description animate__animated animate__fadeIn'>
+              {description}
+            </p>
             {children}
           </div>
 

@@ -37,13 +37,15 @@ const ForgotPassword = () => {
     <AuthLayout>
       {!emailWasSent ? (
         <form onSubmit={handleSubmit(onSubmit)} className='forgot-form'>
-          <h1 className='forgot-form__title'>
+          <h1 className='forgot-form__title animate__animated animate__fadeIn'>
             Se le enviará un enlace a su correo para que cambie la contraseña
           </h1>
 
           <input
             type='email'
-            className={`forgot-form__input ${errors.email ? 'error' : ''}`}
+            className={`forgot-form__input animate__animated animate__fadeIn ${
+              errors.email ? 'error' : ''
+            }`}
             placeholder='Correo electrónico'
             autoComplete='off'
             autoFocus

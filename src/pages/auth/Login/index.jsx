@@ -53,9 +53,11 @@ const Login = () => {
 
   return (
     <AuthLayout description='¡Bienvenido inicia sesión!'>
-      <form onSubmit={handleSubmit(onSubmit)} className='login-form '>
+      <form onSubmit={handleSubmit(onSubmit)} className='login-form'>
         <input
-          className={`login-form__input ${errors.email ? 'error' : ''}`}
+          className={`login-form__input animate__animated animate__fadeIn ${
+            errors.email ? 'error' : ''
+          }`}
           type='email'
           name='email'
           placeholder='Correo electrónico'
@@ -76,7 +78,7 @@ const Login = () => {
         {errors.email && <ErrorFormMessage message={errors.email.message} />}
 
         <input
-          className={`register-form__input ${
+          className={`register-form__input animate__animated animate__fadeIn ${
             errors.password || errors.emptyPassword ? 'error' : ''
           }`}
           type='password'

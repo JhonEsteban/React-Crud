@@ -8,7 +8,7 @@ import ProfileOptions from './ProfileOptions';
 
 const ProfileInformation = () => {
   return (
-    <section className='information'>
+    <section className='information animate__animated animate__fadeIn'>
       <ProfileHeading />
 
       <ProfileContent>

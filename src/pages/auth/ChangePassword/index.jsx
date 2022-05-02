@@ -65,7 +65,7 @@ const ChangePassword = () => {
           <form onSubmit={handleSubmit(onSubmit)} className='password-form'>
             <input
               type='password'
-              className={`password-form__input ${
+              className={`password-form__input animate__animated animate__fadeIn ${
                 errors.password || errors.emptyPassword || customError.state
                   ? 'error'
                   : ''
@@ -106,7 +106,7 @@ const ChangePassword = () => {
 
             <input
               type='password'
-              className={`password-form__input ${
+              className={`password-form__input animate__animated animate__fadeIn ${
                 errors.passwordTwo ||
                 errors.emptyPasswordTwo ||
                 customError.state
