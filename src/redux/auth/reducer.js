@@ -154,6 +154,15 @@ const authReducer = (state = initialState, action) => {
         },
       };
 
+    case types.setNewName:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          name: action.payload.name,
+        },
+      };
+
     default:
       return state;
   }

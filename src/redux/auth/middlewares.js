@@ -6,6 +6,8 @@ import {
   setPutRequestForAuth,
 } from '../../api/authConfig';
 
+import { setPutRequestForUser } from '../../api/userConfig';
+
 import {
   showQuestionAlert,
   showLoadAlert,
@@ -22,11 +24,13 @@ import {
   resetForgotPasswordDataAction,
   setErrorAction,
   setForgotPasswordDataAction,
+  setNewNameAction,
   setRecoverAccountAction,
   startLoaderAction,
   stopLoaderAction,
   validateSessionAction,
 } from './actions';
+
 import { logOutClearTasksAction } from '../task/actions';
 
 const registerUser = (user) => {
@@ -205,6 +209,67 @@ const getAuthStatus = () => {
   };
 };
 
+const updateUserName = (name) => {
+  const query = `${urlBase}/users/update-name`;
+
+  return async (dispatch, getState) => {
+    dispatch(startLoaderAction());
+    showLoadAlert('Cambiando nombre...');
+
+    const { token } = getState().auth;
+
+    const response = await fetch(query, setPutRequestForUser(name, token));
+    const data = await response.json();
+
+    if (!response.ok) {
+      dispatch(stopLoaderAction());
+      dispatch(setErrorAction(data.message));
+
+      showErrorAlert(data.message);
+      return;
+    }
+
+    dispatch(removeErrorAction());
+    dispatch(setNewNameAction(name));
+    dispatch(stopLoaderAction());
+
+    const { isLoading } = getState().auth;
+    closeSwalAlert(isLoading);
+
+    showSuccessAlert('¡Cambiado con éxito!');
+  };
+};
+
+const updateUserPassword = (passwords) => {
+  const query = `${urlBase}/users/update-password`;
+
+  return async (dispatch, getState) => {
+    dispatch(startLoaderAction());
+    showLoadAlert('Cambiando contraseña...');
+
+    const { token } = getState().auth;
+
+    const response = await fetch(query, setPutRequestForUser(passwords, token));
+    const data = await response.json();
+
+    if (!response.ok) {
+      dispatch(stopLoaderAction());
+      dispatch(setErrorAction(data.message));
+
+      showErrorAlert(data.message);
+      return;
+    }
+
+    dispatch(removeErrorAction());
+    dispatch(stopLoaderAction());
+
+    const { isLoading } = getState().auth;
+    closeSwalAlert(isLoading);
+
+    showSuccessAlert('¡Cambiada con éxito!');
+  };
+};
+
 export {
   registerUser,
   loginUser,
@@ -212,4 +277,6 @@ export {
   forgotMyPassword,
   changePassword,
   getAuthStatus,
+  updateUserName,
+  updateUserPassword,
 };

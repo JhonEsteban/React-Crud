@@ -61,6 +61,11 @@ const resetRecoverAccount = () => ({
   type: types.resetRecoverAccount,
 });
 
+const setNewNameAction = (newName) => ({
+  type: types.setNewName,
+  payload: newName,
+});
+
 export {
   registerUserAction,
   loginUserAction,
@@ -76,4 +81,5 @@ export {
   resetForgotPasswordDataAction,
   setRecoverAccountAction,
   resetRecoverAccount,
+  setNewNameAction,
 };

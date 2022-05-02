@@ -2,11 +2,15 @@ import './styles.scss';
 
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { updateUserPassword } from '../../../redux/auth/middlewares';
 
 import BackButton from '../../../components/task/BackButton';
 import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
 
 const UpdatePassword = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const {
@@ -21,7 +25,9 @@ const UpdatePassword = () => {
     navigate('/user/profile');
   };
 
-  const onSubmit = () => {};
+  const onSubmit = (passwords) => {
+    dispatch(updateUserPassword(passwords));
+  };
 
   return (
     <section className='update-password'>

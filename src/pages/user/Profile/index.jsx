@@ -3,7 +3,6 @@ import './styles.scss';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getAuthStatus } from '../../../redux/auth/middlewares';
 import { getAllTasks } from '../../../redux/task/middlewares';
 
 import BackButton from '../../../components/task/BackButton';
@@ -13,7 +12,6 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAuthStatus());
     dispatch(getAllTasks());
   }, [dispatch]);
 

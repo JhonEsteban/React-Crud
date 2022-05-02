@@ -2,11 +2,15 @@ import './styles.scss';
 
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { updateUserName } from '../../../redux/auth/middlewares';
 
 import BackButton from '../../../components/task/BackButton';
 import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
 
 const UpdateName = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const {
@@ -17,7 +21,9 @@ const UpdateName = () => {
     clearErrors,
   } = useForm();
 
-  const onSubmit = () => {};
+  const onSubmit = (name) => {
+    dispatch(updateUserName(name));
+  };
 
   const handleGoBack = () => {
     navigate('/user/profile');
