@@ -13,6 +13,8 @@ const UpdateName = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
+    clearErrors,
   } = useForm();
 
   const onSubmit = () => {};
@@ -31,7 +33,9 @@ const UpdateName = () => {
         <input
           type='text'
           name='newName'
-          className={`form__input ${errors.name ? 'error' : ''}`}
+          className={`form__input ${
+            errors.name || errors.emptyName ? 'error' : ''
+          }`}
           placeholder='Nuevo nombre'
           autoComplete='off'
           autoFocus
@@ -40,10 +44,29 @@ const UpdateName = () => {
               value: true,
               message: 'El nuevo nombre es requerido',
             },
+            minLength: {
+              value: 3,
+              message: 'El nuevo nombre debe ser minimo de 3 caracteres',
+            },
+            validate: (value) => {
+              const validField = value.trim() !== '';
+              validField && clearErrors('emptyName');
+
+              return (
+                validField ||
+                setError('emptyName', {
+                  message: 'El nuevo nombre no debe estar vacío',
+                })
+              );
+            },
           })}
         />
 
         {errors.name && <ErrorFormMessage message={errors.name.message} />}
+
+        {errors.emptyName && (
+          <ErrorFormMessage message={errors.emptyName.message} />
+        )}
 
         <button className='form__btn' type='submit'>
           Cambiar mi nombre

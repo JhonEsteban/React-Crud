@@ -24,7 +24,8 @@
 
     &__btn {
       @include button($dark-color);
-      margin: 0 0 15px;
+      display: block;
+      margin: 10px 0 15px;
     }
   }
 }

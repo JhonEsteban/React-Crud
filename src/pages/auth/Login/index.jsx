@@ -25,6 +25,8 @@ const Login = () => {
     formState: { errors },
     getValues,
     setValue,
+    setError,
+    clearErrors,
   } = useForm();
 
   const { isLoading, rememberEmail } = useSelector((state) => state.auth);
@@ -74,7 +76,9 @@ const Login = () => {
         {errors.email && <ErrorFormMessage message={errors.email.message} />}
 
         <input
-          className={`register-form__input ${errors.password ? 'error' : ''}`}
+          className={`register-form__input ${
+            errors.password || errors.emptyPassword ? 'error' : ''
+          }`}
           type='password'
           placeholder='Contraseña'
           autoComplete='off'
@@ -87,11 +91,26 @@ const Login = () => {
               value: 6,
               message: 'La contraseña debe tener al menos 6 caracteres',
             },
+            validate: (value) => {
+              const validField = value.trim() !== '';
+              validField && clearErrors('emptyPassword');
+
+              return (
+                validField ||
+                setError('emptyPassword', {
+                  message: 'La contraseña no debe estar vacía',
+                })
+              );
+            },
           })}
         />
 
         {errors.password && (
           <ErrorFormMessage message={errors.password.message} />
+        )}
+
+        {errors.emptyPassword && (
+          <ErrorFormMessage message={errors.emptyPassword.message} />
         )}
 
         <div className='login-options'>

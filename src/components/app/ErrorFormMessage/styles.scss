@@ -1,6 +1,8 @@
 @import '../../../assets/styles/variables.scss';
 
 .error {
+  display: inline-block;
   color: $red-color;
   font-size: 0.9rem;
+  margin: 4px 0;
 }

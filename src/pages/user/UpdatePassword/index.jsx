@@ -13,11 +13,9 @@ const UpdatePassword = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
+    setError,
+    clearErrors,
   } = useForm();
-
-  const currentPassword = watch('currentPassword');
-  const passwordTwo = watch('passwordTwo');
 
   const handleGoBack = () => {
     navigate('/user/profile');
@@ -34,7 +32,9 @@ const UpdatePassword = () => {
       <form onSubmit={handleSubmit(onSubmit)} className='form'>
         <input
           type='password'
-          className={`form__input ${errors.currentPassword ? 'error' : ''}`}
+          className={`form__input ${
+            errors.currentPassword || errors.emptyCurrentPassword ? 'error' : ''
+          }`}
           placeholder='Contraseña actual'
           autoComplete='off'
           autoFocus
@@ -45,12 +45,17 @@ const UpdatePassword = () => {
             },
             minLength: {
               value: 6,
-              message: 'La contraseña debe tener al menos 6 caracteres',
+              message: 'La contraseña actual debe tener al menos 6 caracteres',
             },
             validate: (value) => {
+              const validField = value.trim() !== '';
+              validField && clearErrors('emptyCurrentPassword');
+
               return (
-                value === passwordTwo ||
-                'Ingrese la misma contraseña en los dos campos'
+                validField ||
+                setError('emptyCurrentPassword', {
+                  message: 'La contraseña actual no debe estar vacía',
+                })
               );
             },
           })}
@@ -60,33 +65,48 @@ const UpdatePassword = () => {
           <ErrorFormMessage message={errors.currentPassword.message} />
         )}
 
+        {errors.emptyCurrentPassword && (
+          <ErrorFormMessage message={errors.emptyCurrentPassword.message} />
+        )}
+
         <input
           type='password'
-          className={`form__input ${errors.passwordTwo ? 'error' : ''}`}
-          placeholder='Confirmar contraseña'
-          {...register('passwordTwo', {
+          className={`form__input ${
+            errors.newPassword || errors.emptyNewPassword ? 'error' : ''
+          }`}
+          placeholder='Nueva contraseña'
+          {...register('newPassword', {
             required: {
               value: true,
-              message: 'La confirmación de contraseña es requerida',
+              message: 'La nueva contraseña es requerida',
             },
             minLength: {
               value: 6,
-              message: 'La contraseña debe tener al menos 6 caracteres',
+              message: 'La nueva contraseña debe tener al menos 6 caracteres',
             },
             validate: (value) => {
+              const validField = value.trim() !== '';
+              validField && clearErrors('emptyNewPassword');
+
               return (
-                value === currentPassword ||
-                'Ingrese la misma contraseña en los dos campos'
+                validField ||
+                setError('emptyNewPassword', {
+                  message: 'La nueva contraseña no debe estar vacía',
+                })
               );
             },
           })}
         />
 
-        {errors.passwordTwo && (
-          <ErrorFormMessage message={errors.passwordTwo.message} />
+        {errors.newPassword && (
+          <ErrorFormMessage message={errors.newPassword.message} />
         )}
 
-        <button type='submit' className='form__btn'>
+        {errors.emptyNewPassword && (
+          <ErrorFormMessage message={errors.emptyNewPassword.message} />
+        )}
+
+        <button className='form__btn' type='submit'>
           Actualizar mi contraseña
         </button>
       </form>

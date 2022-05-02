@@ -17,6 +17,8 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
+    clearErrors,
   } = useForm();
 
   const { isLoading } = useSelector((state) => state.auth);
@@ -29,7 +31,9 @@ const Register = () => {
     <AuthLayout description='¡Bienvenido registrate!'>
       <form onSubmit={handleSubmit(onSubmit)} className='register-form'>
         <input
-          className={`register-form__input ${errors.name ? 'error' : ''}`}
+          className={`register-form__input ${
+            errors.name || errors.emptyName ? 'error' : ''
+          }`}
           type='text'
           name='name'
           placeholder='Nombre'
@@ -40,10 +44,29 @@ const Register = () => {
               value: true,
               message: 'El nombre es requerido',
             },
+            minLength: {
+              value: 3,
+              message: 'El nombre debe ser minimo de 3 caracteres',
+            },
+            validate: (value) => {
+              const validField = value.trim() !== '';
+              validField && clearErrors('emptyName');
+
+              return (
+                validField ||
+                setError('emptyName', {
+                  message: 'El nombre no debe estar vacío',
+                })
+              );
+            },
           })}
         />
 
         {errors.name && <ErrorFormMessage message={errors.name.message} />}
+
+        {errors.emptyName && (
+          <ErrorFormMessage message={errors.emptyName.message} />
+        )}
 
         <input
           className={`register-form__input ${errors.email ? 'error' : ''}`}
@@ -66,7 +89,9 @@ const Register = () => {
         {errors.email && <ErrorFormMessage message={errors.email.message} />}
 
         <input
-          className={`register-form__input ${errors.password ? 'error' : ''}`}
+          className={`register-form__input ${
+            errors.password || errors.emptyPassword ? 'error' : ''
+          }`}
           type='password'
           name='password'
           placeholder='Contraseña'
@@ -80,11 +105,26 @@ const Register = () => {
               value: 6,
               message: 'La contraseña debe tener al menos 6 caracteres',
             },
+            validate: (value) => {
+              const validField = value.trim() !== '';
+              validField && clearErrors('emptyPassword');
+
+              return (
+                validField ||
+                setError('emptyPassword', {
+                  message: 'La contraseña no debe estar vacía',
+                })
+              );
+            },
           })}
         />
 
         {errors.password && (
           <ErrorFormMessage message={errors.password.message} />
+        )}
+
+        {errors.emptyPassword && (
+          <ErrorFormMessage message={errors.emptyPassword.message} />
         )}
 
         <div className='register-options'>

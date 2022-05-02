@@ -1,14 +1,17 @@
 import './styles.scss';
 
 import { useForm } from 'react-hook-form';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changePassword } from '../../../redux/auth/middlewares';
 
+import useCustomError from '../../../hooks/useCustomError';
+
 import AuthLayout from '../../../components/auth/AuthLayout';
 import ChangePasswordMessage from '../../../components/auth/ChangePasswordMessage';
 import ErrorFormMessage from '../../../components/app/ErrorFormMessage';
+import useQueryParams from '../../../hooks/useQueryParams';
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
@@ -18,19 +21,40 @@ const ChangePassword = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
+    setError,
+    clearErrors,
   } = useForm();
 
-  const password = watch('password');
-  const passwordTwo = watch('passwordTwo');
-
-  const [searchParams] = useSearchParams();
-  const token = searchParams.get('token') || '';
+  const [token] = useQueryParams('token');
+  const { customError, setNewError, resetError } = useCustomError();
 
   const { isLoading, recoverAccount } = useSelector((state) => state.auth);
   const { passwordWasChanged } = recoverAccount;
 
-  const onSubmit = ({ passwordTwo }) => {
+  const areEqualPasswords = ({ password, passwordTwo }) => {
+    const validFields = password.trim() === passwordTwo.trim();
+
+    if (!validFields) {
+      setNewError({
+        state: true,
+        message: 'Las contraseñas deben ser iguales',
+      });
+
+      return validFields;
+    }
+
+    resetError();
+    return validFields;
+  };
+
+  const onSubmit = (userData) => {
+    const areEquals = areEqualPasswords(userData);
+
+    if (!areEquals) {
+      return;
+    }
+
+    const { passwordTwo } = userData;
     dispatch(changePassword({ newPassword: passwordTwo }, token));
   };
 
@@ -42,7 +66,9 @@ const ChangePassword = () => {
             <input
               type='password'
               className={`password-form__input ${
-                errors.password ? 'error' : ''
+                errors.password || errors.emptyPassword || customError.state
+                  ? 'error'
+                  : ''
               }`}
               placeholder='Contraseña'
               autoComplete='off'
@@ -57,9 +83,14 @@ const ChangePassword = () => {
                   message: 'La contraseña debe tener al menos 6 caracteres',
                 },
                 validate: (value) => {
+                  const validField = value.trim() !== '';
+                  validField && clearErrors('emptyPassword');
+
                   return (
-                    value === passwordTwo ||
-                    'Ingrese la misma contraseña en los dos campos'
+                    validField ||
+                    setError('emptyPassword', {
+                      message: 'La contraseña no debe estar vacía',
+                    })
                   );
                 },
               })}
@@ -69,10 +100,18 @@ const ChangePassword = () => {
               <ErrorFormMessage message={errors.password.message} />
             )}
 
+            {errors.emptyPassword && (
+              <ErrorFormMessage message={errors.emptyPassword.message} />
+            )}
+
             <input
               type='password'
               className={`password-form__input ${
-                errors.passwordTwo ? 'error' : ''
+                errors.passwordTwo ||
+                errors.emptyPasswordTwo ||
+                customError.state
+                  ? 'error'
+                  : ''
               }`}
               placeholder='Confirmar contraseña'
               autoComplete='off'
@@ -86,9 +125,15 @@ const ChangePassword = () => {
                   message: 'La contraseña debe tener al menos 6 caracteres',
                 },
                 validate: (value) => {
+                  const validField = value.trim() !== '';
+                  validField && clearErrors('emptyPasswordTwo');
+
                   return (
-                    value === password ||
-                    'Ingrese la misma contraseña en los dos campos'
+                    validField ||
+                    setError('emptyPasswordTwo', {
+                      message:
+                        'La confirmación de contraseña no debe estar vacía',
+                    })
                   );
                 },
               })}
@@ -96,6 +141,14 @@ const ChangePassword = () => {
 
             {errors.passwordTwo && (
               <ErrorFormMessage message={errors.passwordTwo.message} />
+            )}
+
+            {errors.emptyPasswordTwo && (
+              <ErrorFormMessage message={errors.emptyPasswordTwo.message} />
+            )}
+
+            {customError.state && (
+              <ErrorFormMessage message={customError.message} />
             )}
 
             <button
