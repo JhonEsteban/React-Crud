@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className='footer'>
       <section className='heading'>
         <p className='heading__text'>
-          Aplicación creada por{' '}
+          <span>Aplicación creada por</span>
           <a
             href='https://www.linkedin.com/in/jhon-esteban-herrera'
             target='_blank'
@@ -18,7 +18,8 @@ const Footer = () => {
           </a>
         </p>
         <p className='heading__author'>
-          Desarrollador JavaScript Fullstack (MERN)
+          <span>Desarrollador JavaScript</span>
+          FullStack (MERN)
         </p>
       </section>
 

@@ -6,7 +6,7 @@
   color: $light-color;
   display: grid;
   place-items: center;
-  row-gap: 30px;
+  row-gap: 25px;
 
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -20,11 +20,19 @@
     }
 
     &__text {
-      margin: 10px 0;
+      margin: 10px 0 15px;
+
+      span {
+        display: block;
+      }
     }
 
     &__author {
       margin: 0;
+
+      span {
+        display: block;
+      }
     }
   }
 
