@@ -7,4 +7,12 @@ const setPutRequestForUser = (body, token) => ({
   },
 });
 
-export { setPutRequestForUser };
+const setPutRequestForUserImage = (body, token) => ({
+  method: 'PUT',
+  body,
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
+export { setPutRequestForUser, setPutRequestForUserImage };

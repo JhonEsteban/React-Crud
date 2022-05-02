@@ -6,7 +6,10 @@ import {
   setPutRequestForAuth,
 } from '../../api/authConfig';
 
-import { setPutRequestForUser } from '../../api/userConfig';
+import {
+  setPutRequestForUser,
+  setPutRequestForUserImage,
+} from '../../api/userConfig';
 
 import {
   showQuestionAlert,
@@ -24,7 +27,8 @@ import {
   resetForgotPasswordDataAction,
   setErrorAction,
   setForgotPasswordDataAction,
-  setNewNameAction,
+  setNewUserImageAction,
+  setNewUserNameAction,
   setRecoverAccountAction,
   startLoaderAction,
   stopLoaderAction,
@@ -214,7 +218,7 @@ const updateUserName = (name) => {
 
   return async (dispatch, getState) => {
     dispatch(startLoaderAction());
-    showLoadAlert('Cambiando nombre...');
+    showLoadAlert('Actualizando nombre...');
 
     const { token } = getState().auth;
 
@@ -230,13 +234,13 @@ const updateUserName = (name) => {
     }
 
     dispatch(removeErrorAction());
-    dispatch(setNewNameAction(name));
+    dispatch(setNewUserNameAction(data.name));
     dispatch(stopLoaderAction());
 
     const { isLoading } = getState().auth;
     closeSwalAlert(isLoading);
 
-    showSuccessAlert('¡Cambiado con éxito!');
+    showSuccessAlert('¡Actualizado con éxito!');
   };
 };
 
@@ -245,7 +249,7 @@ const updateUserPassword = (passwords) => {
 
   return async (dispatch, getState) => {
     dispatch(startLoaderAction());
-    showLoadAlert('Cambiando contraseña...');
+    showLoadAlert('Actualizando contraseña...');
 
     const { token } = getState().auth;
 
@@ -266,7 +270,45 @@ const updateUserPassword = (passwords) => {
     const { isLoading } = getState().auth;
     closeSwalAlert(isLoading);
 
-    showSuccessAlert('¡Cambiada con éxito!');
+    showSuccessAlert('¡Actualizada con éxito!');
+  };
+};
+
+const updateUserImage = (file) => {
+  const query = `${urlBase}/users/update-image`;
+
+  return async (dispatch, getState) => {
+    dispatch(startLoaderAction());
+    showLoadAlert('Actualizando imagen...');
+
+    const { token } = getState().auth;
+
+    const formData = new FormData();
+    formData.append('newImage', file);
+
+    const response = await fetch(
+      query,
+      setPutRequestForUserImage(formData, token)
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      dispatch(stopLoaderAction());
+      dispatch(setErrorAction(data.message));
+
+      showErrorAlert(data.message);
+      return;
+    }
+
+    dispatch(removeErrorAction());
+    dispatch(setNewUserImageAction(data.image));
+    dispatch(stopLoaderAction());
+
+    const { isLoading } = getState().auth;
+    closeSwalAlert(isLoading);
+
+    showSuccessAlert('¡Actualizada con éxito!');
   };
 };
 
@@ -279,4 +321,5 @@ export {
   getAuthStatus,
   updateUserName,
   updateUserPassword,
+  updateUserImage,
 };

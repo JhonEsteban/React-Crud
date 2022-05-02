@@ -61,9 +61,14 @@ const resetRecoverAccount = () => ({
   type: types.resetRecoverAccount,
 });
 
-const setNewNameAction = (newName) => ({
-  type: types.setNewName,
+const setNewUserNameAction = (newName) => ({
+  type: types.setNewUserName,
   payload: newName,
+});
+
+const setNewUserImageAction = (newImage) => ({
+  type: types.setNewUserImage,
+  payload: newImage,
 });
 
 export {
@@ -81,5 +86,6 @@ export {
   resetForgotPasswordDataAction,
   setRecoverAccountAction,
   resetRecoverAccount,
-  setNewNameAction,
+  setNewUserNameAction,
+  setNewUserImageAction,
 };

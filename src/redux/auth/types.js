@@ -13,7 +13,8 @@ const types = {
   resetForgotPasswordData: '[AUTH] Reset Forgot Password Data',
   setRecoverAccount: '[AUTH] Set Recover Account ',
   resetRecoverAccount: '[AUTH] Reset Recover Account',
-  setNewName: '[AUTH] Set New Name',
+  setNewUserName: '[AUTH] Set New User Name',
+  setNewUserImage: '[AUTH] Set New User Image',
 };
 
 export default types;

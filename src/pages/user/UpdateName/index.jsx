@@ -75,7 +75,7 @@ const UpdateName = () => {
         )}
 
         <button className='form__btn' type='submit'>
-          Cambiar mi nombre
+          Actualizar mi nombre
         </button>
       </form>
     </section>

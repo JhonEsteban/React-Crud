@@ -20,15 +20,25 @@
 
   .logo {
     margin: 0;
-    font-size: 1.6rem;
     cursor: pointer;
+    transition: transform 200ms ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   .profile {
     position: relative;
     width: 40px;
+    object-fit: cover;
     border-radius: 50%;
     cursor: pointer;
+    transition: transform 200ms ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   .menu {

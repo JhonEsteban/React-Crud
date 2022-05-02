@@ -154,12 +154,21 @@ const authReducer = (state = initialState, action) => {
         },
       };
 
-    case types.setNewName:
+    case types.setNewUserName:
       return {
         ...state,
         user: {
           ...state.user,
-          name: action.payload.name,
+          name: action.payload,
+        },
+      };
+
+    case types.setNewUserImage:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          image: action.payload,
         },
       };
 

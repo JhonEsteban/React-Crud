@@ -1,20 +1,29 @@
 import './styles.scss';
 
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { updateUserImage } from '../../../../redux/auth/middlewares';
 
 import ErrorFormMessage from '../../../app/ErrorFormMessage';
 
 const ProfileHeading = () => {
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const { user } = useSelector((state) => state.auth);
 
-  const onSubmit = () => {};
+  const onSubmit = ({ imageFile }) => {
+    const file = imageFile[0];
+    dispatch(updateUserImage(file));
+    reset();
+  };
 
   return (
     <section className='profile-heading'>
